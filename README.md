@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# David Oliveira - Dev Portifolio Page 🚀
 
-## Getting Started
+Bem-vindo à documentação técnica das Landing Pages desenvolvidas por **David Oliveira**.
 
-First, run the development server:
+Este repositório contém a estrutura "Master" utilizada para criar páginas de **alta conversão**, focadas em velocidade, SEO e captura de leads qualificados.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ⚡ Por que uma Landing Page Sob Medida?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Diferente de criadores de sites genéricos (Wix, Elementor), minhas páginas são desenvolvidas com **código puro e otimizado** (Next.js + React), garantindo:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  **Carregamento Instantâneo:** O Google prioriza sites que abrem em menos de 1 segundo. Nossas páginas atingem pontuação 95-100 no PageSpeed Insights.
+2.  **SEO Técnico Nativo:** Estrutura de dados preparada para que seu negócio seja encontrado organicamente.
+3.  **Segurança Total:** Sem plugins vulneráveis ou brechas de segurança comuns em WordPress.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Funcionalidades Integradas (O "Kit Vendas")
 
-## Learn More
+Cada projeto é personalizado a partir deste núcleo, que já inclui:
 
-To learn more about Next.js, take a look at the following resources:
+* **Botão WhatsApp Inteligente:** Detecta horário comercial e status online/offline.
+* **Captura de Leads Avançada:** Integração direta com CRM ou E-mail, sem intermediários.
+* **Analytics Privacy-First:** Métricas de acesso precisas sem violar a LGPD.
+* **Design Responsivo:** Perfeito em celulares, tablets e desktops 4K.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔧 Stack Tecnológica
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* **Core:** Next.js 14 (App Router) & React
+* **Estilo:** Tailwind CSS (Design System consistente)
+* **Performance:** Vercel Edge Network
+* **Linguagem:** TypeScript (Robustez e manutenção facilitada)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Desenvolvido por David Denis - Especialista em Desenvolvimento Full-Stack & Automação.*

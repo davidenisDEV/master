@@ -1,26 +1,113 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%; /* Branco Puro */
+    --foreground: 215 19% 35%; /* Cinza Escuro Texto (Nexcent) */
+
+    /* Verde Nexcent #4CAF4F -> HSL: 123, 38%, 49% */
+    --primary: 123 38% 49%;
+    --primary-foreground: 0 0% 100%; /* Texto Branco no botão verde */
+
+    /* Cinza Claro (Fundo Alternado) #F5F7FA -> HSL: 210, 29%, 97% */
+    --secondary: 210 29% 97%; 
+    --secondary-foreground: 215 19% 35%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 47%; /* Cinza Médio para textos de apoio */
+
+    --accent: 123 38% 49%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 123 38% 49%;
+
+    --radius: 0.25rem; /* Botões mais quadrados (4px) igual a referência */
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 19% 35%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 19% 35%;
+  }
+
+  .dark {
+    /* Tema Dark Adaptado */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --primary: 123 38% 49%; /* Mantém o verde */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 123 38% 49%;
+    
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans), sans-serif; /* Padrão Inter */
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* Títulos em Manrope, Cinza Escuro e Peso SemiBold */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), sans-serif;
+    color: #4D4D4D; /* Cinza Chumbo Nexcent */
+    font-weight: 600; 
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4 {
+    color: #ffffff;
+  }
+} 
+
+@layer utilities {
+  /* Animação do Carrossel */
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-33.3333%); }
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+    will-change: transform;
+  }
+
+  /* Animação do Grid do Hero */
+  @keyframes grid {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 40px; }
+  }
+  .animate-grid {
+    animation: grid 4s linear infinite;
+  }
 }
