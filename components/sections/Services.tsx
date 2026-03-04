@@ -173,7 +173,7 @@ function ProjectCard({ project }: { project: any }) {
                 <p className="ml-4 text-slate-300">bytes_removed = os.system(<span className="text-orange-300">'cleanmgr /sagerun:1'</span>)</p>
                 <p className="ml-4">print(<span className="text-orange-300">f"Sucesso! Sistema otimizado."</span>)</p>
                 <br/>
-                <p className="text-slate-300 animate-pulse">></p>
+                <p className="text-slate-300 animate-pulse">&gt;</p>
               </div>
             </div>
           )}
