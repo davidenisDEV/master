@@ -1,192 +1,221 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Code2, Database, Bot, Terminal, Code, Cpu, Repeat, Check } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Code2, Database, Bot, Terminal, ShieldCheck, ExternalLink, Github, ChevronLeft, ChevronRight, Settings } from "lucide-react";
 
 // --- DADOS DAS HABILIDADES ---
 const skills = [
   {
     title: "Front-end & UI/UX",
-    description: "Criação de interfaces modernas, interativas e responsivas utilizando React.js, TypeScript e Bootstrap. Foco total na jornada do usuário e conversão.",
+    description: "Criação de interfaces modernas, interativas e responsivas utilizando React.js, TypeScript e Next.js. Foco total na jornada do usuário, conversão e métricas Core Web Vitals.",
     icon: <Code2 className="w-10 h-10 text-primary" />
   },
   {
-    title: "Back-end & Dados",
-    description: "Desenvolvimento robusto com Python (Flask) e Node.js. Arquitetura de APIs RESTful e gestão de dados complexos com Pandas, PostgreSQL e MySQL.",
+    title: "Back-end & Arquitetura",
+    description: "Desenvolvimento robusto com Python (Django) e Node.js. Arquitetura de APIs RESTful, gestão de banco de dados (PostgreSQL/Supabase) e autenticação segura (OAuth).",
     icon: <Database className="w-10 h-10 text-primary" />
   },
   {
     title: "Automação (ETL) & Bots",
-    description: "Otimização de processos através de scripts em Python. Integração de dados, Business Intelligence e automação de atendimento com WhatsApp.",
+    description: "Otimização de processos através de scripts avançados. Integração de dados, automação de atendimento com WhatsApp e criação de Dashboards interativos de Business Intelligence.",
     icon: <Bot className="w-10 h-10 text-primary" />
   }
 ];
 
-// --- DADOS DOS PROJETOS (Agora com Tags de Impacto para Leigos) ---
+// --- OS CASES DE SUCESSO ---
 const projects = [
   {
-    title: "Go Green Shop",
-    subtitle: "E-commerce & Brand",
-    description: "Desenvolvimento e gestão digital de marca própria. Foco em estratégias de UI/UX para máxima conversão de vendas e retenção de usuários.",
-    impactTags: ["Aumento de Conversão", "Design Responsivo", "Gestão Simplificada"],
-    icon: <Cpu className="w-8 h-8 text-primary" />,
-    codeSnippet: `// Tech Stack: React + Node
-import { Store } from '@/modules/ecommerce';
-
-const GoGreenApp = () => {
-  return (
-    <Store 
-      mode="high-conversion"
-      paymentGateway="stripe"
-      analytics={true}
-    />
-  );
-};
-
-export default GoGreenApp;`
+    title: "GoGreen Headshop",
+    subtitle: "SaaS E-commerce & PDV Integrado",
+    description: "Uma plataforma híbrida de alta performance desenvolvida do zero. Muito além de uma loja virtual, o sistema conta com um Painel Admin completo (PDV de balcão), gestão de inventário em tempo real e um Clube VIP de fidelização.",
+    tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+    features: [
+      "Autenticação segura via Google OAuth",
+      "Clube VIP: Sistema de pontuação e resgate de brindes",
+      "Checkout inteligente direto para o WhatsApp do vendedor",
+      "Painel Admin / CRM para gestão de clientes",
+      "PDV (Ponto de Venda) para operações físicas na loja"
+    ],
+    liveLink: "https://gogreen-4fmn.vercel.app/",
+    githubLink: "https://github.com/davidenisDEV/gogreen",
+    images: [
+      "/gogreenhero.png",
+      "/gogreenheroabraba.png",
+      "/gogreenherokits.png",
+      "/gogreenheroitens.png",
+      "/gogreenclub.png",
+      "/gogreenmusic.png"
+    ]
   },
   {
-    title: "Landing Pages",
-    subtitle: "Alta Conversão",
-    description: "Páginas responsivas para estabelecimentos comerciais com foco extremo em performance, SEO e velocidade.",
-    impactTags: ["Carregamento em 1s", "Otimizado pro Google", "Foco em Vendas"],
-    icon: <Code className="w-8 h-8 text-primary" />,
-    codeSnippet: `// Tech Stack: Next.js + Tailwind
-export const metadata = {
-  title: 'SEO Optimized',
-  description: 'Fastest load time',
-};
-
-export function LandingPage() {
-  // Lighthouse Score: 100
-  return <Layout theme="dark" />;
-}`
-  },
-  {
-    title: "PC Cleaner",
-    subtitle: "Software de Otimização",
-    description: "Ferramenta desktop desenvolvida em Python para manutenção preventiva e limpeza automatizada de sistemas.",
-    impactTags: ["Economia de Tempo", "100% Automático", "Zero Travamentos"],
-    icon: <Terminal className="w-8 h-8 text-primary" />,
-    codeSnippet: `# Tech Stack: Python + OS Module
-import os, shutil
-
-def optimize_system():
-    # Limpeza de arquivos temporários
-    temp_path = os.environ.get('TEMP')
-    shutil.rmtree(temp_path, ignore_errors=True)
-    
-    return "Sistema Otimizado com Sucesso!"
-
-if __name__ == "__main__":
-    optimize_system()`
+    title: "PC Cleaner & Optimizer",
+    subtitle: "Automação e Performance em Python",
+    description: "Uma ferramenta desktop desenvolvida com interface gráfica (GUI) em Python para limpeza profunda e otimização do sistema operativo. Remove arquivos temporários, esvazia cache e melhora a performance do computador de forma segura.",
+    tags: ["Python", "Automação", "OS Module", "Desktop GUI"],
+    features: [
+      "Limpeza automática de arquivos temporários do sistema",
+      "Otimização de memória e esvaziamento de cache",
+      "Interface gráfica amigável para usuários não-técnicos",
+      "Execução rápida e segura integrada ao Sistema Operativo"
+    ],
+    liveLink: "", // Sem live link por ser script de terminal/desktop
+    githubLink: "https://github.com/davidenisDEV/limpezaPC",
+    images: [] // Usa o mockup de terminal gerado no componente
   }
 ];
 
-// --- COMPONENTE DO CARD 3D ---
+// Componente isolado para gerir a galeria de fotos de cada projeto
 function ProjectCard({ project }: { project: any }) {
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [currentImg, setCurrentImg] = useState(0);
+
+  const nextImg = () => setCurrentImg((prev) => (prev + 1) % project.images.length);
+  const prevImg = () => setCurrentImg((prev) => (prev - 1 + project.images.length) % project.images.length);
 
   return (
-    <div className="relative h-[420px] w-full group cursor-pointer" style={{ perspective: "1000px" }}>
-      <motion.div
-        className="w-full h-full relative rounded-xl shadow-sm border border-slate-200 dark:border-slate-800"
-        initial={false}
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, type: "spring", stiffness: 260, damping: 20 }}
-        style={{ transformStyle: "preserve-3d" }}
-      >
-        {/* FRENTE DO CARD (Visão de Negócios) */}
-        <div 
-          className="absolute inset-0 w-full h-full backface-hidden bg-white dark:bg-slate-900 rounded-xl p-8 flex flex-col items-center text-center"
-          style={{ backfaceVisibility: "hidden" }}
-        >
-          <div className="mb-4 p-3 bg-green-50 dark:bg-green-900/20 rounded-2xl">
-            {project.icon}
-          </div>
-          <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-1 font-heading">{project.title}</h3>
-          <p className="text-primary text-xs font-bold uppercase tracking-wider mb-3">{project.subtitle}</p>
-          <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-3xl overflow-hidden shadow-xl mb-12"
+    >
+      <div className="grid lg:grid-cols-2">
+        
+        {/* Info Esquerda */}
+        <div className="p-8 md:p-12 flex flex-col justify-center">
+          <p className="text-primary font-bold tracking-widest uppercase text-xs mb-2">{project.subtitle}</p>
+          <h3 className="text-3xl font-heading font-bold text-slate-800 dark:text-white mb-4">{project.title}</h3>
+          <p className="text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
             {project.description}
           </p>
-          
-          {/* Tags de Impacto (Para clientes leigos) */}
-          <div className="w-full flex flex-col gap-1.5 mb-auto text-left mt-2 border-t border-slate-100 dark:border-slate-800 pt-4">
-            {project.impactTags.map((tag: string, i: number) => (
-              <div key={i} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300 font-medium">
-                <Check className="w-3.5 h-3.5 text-primary shrink-0" /> {tag}
+
+          <div className="space-y-3 mb-8">
+            {project.features.map((feat: string, i: number) => (
+              <div key={i} className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                <ShieldCheck className="w-5 h-5 text-primary shrink-0" /> {feat}
               </div>
             ))}
           </div>
 
-          <button 
-            onClick={() => setIsFlipped(true)}
-            className="mt-6 flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors bg-slate-50 dark:bg-slate-800 px-4 py-2 rounded-lg w-full justify-center"
-          >
-            <Code className="w-4 h-4" /> Ver Código Fonte
-          </button>
-        </div>
-
-        {/* VERSO DO CARD (Visão de Código/Terminal) */}
-        <div 
-          className="absolute inset-0 w-full h-full bg-slate-950 rounded-xl p-6 flex flex-col text-left overflow-hidden border border-slate-800"
-          style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
-        >
-          {/* Header do Terminal Falso */}
-          <div className="flex items-center gap-2 mb-4 pb-4 border-b border-slate-800">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            <span className="ml-2 text-xs text-slate-500 font-mono">snippet.ts</span>
+          <div className="flex flex-wrap gap-2 mb-8">
+            {project.tags.map((tag: string, i: number) => (
+              <span key={i} className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1 rounded-full text-xs font-bold">
+                {tag}
+              </span>
+            ))}
           </div>
-          
-          {/* Código Formatado */}
-          <pre className="text-green-400 font-mono text-xs md:text-sm leading-relaxed whitespace-pre-wrap overflow-y-auto mb-auto scrollbar-hide">
-            {project.codeSnippet}
-          </pre>
 
-          <button 
-            onClick={() => setIsFlipped(false)}
-            className="mt-4 pt-4 border-t border-slate-800 flex items-center justify-center gap-2 text-sm font-medium text-slate-400 hover:text-white transition-colors"
-          >
-            <Repeat className="w-4 h-4" /> Voltar para Resumo
-          </button>
+          <div className="flex flex-wrap items-center gap-4">
+            {project.liveLink && (
+              <a href={project.liveLink} target="_blank" rel="noreferrer" className="bg-primary hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-colors flex items-center gap-2">
+                Ver ao Vivo <ExternalLink className="w-4 h-4" />
+              </a>
+            )}
+            <a href={project.githubLink} target="_blank" rel="noreferrer" className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-white px-6 py-3 rounded-xl font-medium transition-colors flex items-center gap-2">
+              <Github className="w-4 h-4" /> Repositório
+            </a>
+          </div>
         </div>
-      </motion.div>
-    </div>
+
+        {/* Imagem / Mockup Direita */}
+        <div className="bg-slate-100 dark:bg-slate-950 p-8 flex items-center justify-center relative overflow-hidden min-h-[400px]">
+          <div className="absolute inset-0 bg-primary/5"></div>
+          
+          {project.images && project.images.length > 0 ? (
+            // Galeria de Imagens para a GoGreen
+            <div className="relative z-10 w-full max-w-lg aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl group border-4 border-slate-800">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentImg}
+                  src={project.images[currentImg]}
+                  alt={`${project.title} preview`}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full h-full object-cover"
+                />
+              </AnimatePresence>
+              
+              {/* Controles da Galeria */}
+              <div className="absolute inset-0 flex items-center justify-between p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button onClick={prevImg} className="p-2 bg-black/50 hover:bg-primary text-white rounded-full backdrop-blur-sm transition-colors">
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button onClick={nextImg} className="p-2 bg-black/50 hover:bg-primary text-white rounded-full backdrop-blur-sm transition-colors">
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Indicadores */}
+              <div className="absolute bottom-4 left-0 w-full flex justify-center gap-2">
+                {project.images.map((_: any, idx: number) => (
+                  <div key={idx} className={`w-2 h-2 rounded-full transition-colors ${idx === currentImg ? 'bg-primary' : 'bg-white/50'}`} />
+                ))}
+              </div>
+            </div>
+          ) : (
+            // Mockup de Terminal para o Script Python (LimpezaPC)
+            <div className="relative z-10 w-full max-w-md bg-[#1e1e1e] border-2 border-slate-700 rounded-xl shadow-2xl overflow-hidden flex flex-col font-mono text-sm">
+              <div className="bg-slate-800 p-3 flex items-center gap-2 border-b border-slate-700">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                <div className="ml-4 text-slate-400 text-xs flex items-center gap-2"><Terminal className="w-3 h-3"/> main.py</div>
+              </div>
+              <div className="p-6 text-green-400 leading-relaxed">
+                <p className="text-slate-300">import <span className="text-blue-400">os</span></p>
+                <p className="text-slate-300">import <span className="text-blue-400">shutil</span></p>
+                <br/>
+                <p className="text-purple-400">def <span className="text-yellow-200">clean_system</span>():</p>
+                <p className="ml-4 text-slate-500"># Iniciando varredura de cache...</p>
+                <p className="ml-4">print(<span className="text-orange-300">"Buscando arquivos temporários..."</span>)</p>
+                <p className="ml-4 text-slate-300">bytes_removed = os.system(<span className="text-orange-300">'cleanmgr /sagerun:1'</span>)</p>
+                <p className="ml-4">print(<span className="text-orange-300">f"Sucesso! Sistema otimizado."</span>)</p>
+                <br/>
+                <p className="text-slate-300 animate-pulse">></p>
+              </div>
+            </div>
+          )}
+        </div>
+
+      </div>
+    </motion.div>
   );
 }
 
 export function Services() {
   return (
     <>
-      {/* SEÇÃO 1: Especialidades (Grid) */}
-      <section id="features" className="py-20 bg-white dark:bg-slate-950">
+      {/* SEÇÃO 1: Habilidades e Serviços */}
+      <section id="services" className="py-24 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-semibold text-slate-800 dark:text-white mb-4 font-heading leading-tight">
-              Como posso ajudar a <br /> escalar o seu negócio?
+              Soluções sob medida para o <br /> seu desafio de negócio.
             </h2>
-            <p className="text-slate-500">Competências técnicas aplicadas a resultados reais.</p>
+            <p className="text-slate-500 dark:text-slate-400">
+              Transformo gargalos operacionais em sistemas fluidos e escaláveis.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {skills.map((item, index) => (
-              <motion.div
+              <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-[0_2px_4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_16px_rgba(0,0,0,0.1)] transition-all text-center flex flex-col items-center group"
+                className="bg-slate-50 dark:bg-slate-900/50 p-8 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-primary/50 transition-colors flex flex-col items-center"
               >
-                <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-tl-[18px] rounded-br-[18px] rounded-tr-[5px] rounded-bl-[5px] group-hover:bg-green-100 dark:group-hover:bg-green-900/40 transition-colors">
+                <div className="w-20 h-20 bg-green-50 dark:bg-green-900/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-green-100 dark:group-hover:bg-green-900/40 transition-colors">
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-bold text-slate-700 dark:text-white mb-3 text-center w-full font-heading">
                   {item.title}
                 </h3>
-                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4 font-sans px-2">
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4 font-sans text-center">
                   {item.description}
                 </p>
               </motion.div>
@@ -195,19 +224,19 @@ export function Services() {
         </div>
       </section>
 
-      {/* SEÇÃO 2: Projetos em Destaque (Cards Flip 3D) */}
-      <section id="portfolio" className="py-24 bg-slate-50 dark:bg-slate-900/30">
+      {/* SEÇÃO 2: Projetos em Destaque */}
+      <section id="portfolio" className="py-24 bg-slate-50 dark:bg-slate-900/30 border-y border-slate-100 dark:border-slate-800">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="bg-primary/10 text-primary border border-primary/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-flex items-center gap-2">
+              <Terminal className="w-4 h-4" /> Portfólio
+            </span>
             <h2 className="text-3xl md:text-4xl font-semibold text-slate-800 dark:text-white mb-4 font-heading leading-tight">
-              Projetos desenvolvidos <br /> com foco na conversão.
+              Projetos desenvolvidos <br /> com foco em performance.
             </h2>
-            <p className="text-slate-500">
-              Soluções pensadas no usuário. Clique em <strong className="text-primary font-medium">Ver Código Fonte</strong> para avaliar a arquitetura técnica.
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="max-w-5xl mx-auto">
             {projects.map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
