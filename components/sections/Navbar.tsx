@@ -1,19 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Moon, Sun, Globe } from "lucide-react"; // Adicionamos o ícone Globe
+import { Menu, X, Moon, Sun, Globe } from "lucide-react";
 import { useTheme } from "next-themes";
 import { siteConfig } from "@/config/site-config";
 import Link from "next/link";
+import { useLanguage } from "@/components/contexts/LanguageContext"; 
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { setTheme, theme } = useTheme();
   
-  // Controle do menu de idiomas
+  // Extração das variáveis e funções reais do Contexto Global
+  const { language, toggleLanguage, t } = useLanguage();
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState("PT");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -21,13 +22,21 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Simulação de troca de idioma (futuramente conectaremos ao dicionário)
-  const changeLanguage = (lang: string) => {
-    setCurrentLang(lang);
+  // Função inteligente que só troca de idioma se o utilizador clicar num diferente do atual
+  const handleLanguageChange = (lang: "PT" | "EN") => {
+    if (lang !== language) {
+      toggleLanguage();
+    }
     setIsLangOpen(false);
-    // Aqui no futuro adicionaremos a lógica para trocar os textos da tela
-    console.log(`Idioma alterado para: ${lang}`);
   };
+
+  // Tradução dinâmica dos links de navegação
+  const navLinks = [
+    { label: t.navbar.services, href: "#services" },
+    { label: t.navbar.portfolio, href: "#portfolio" },
+    { label: t.navbar.pricing, href: "#pricing" },
+    { label: t.navbar.contact, href: "#contact" },
+  ];
 
   return (
     <header
@@ -38,12 +47,12 @@ export function Navbar() {
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold font-heading text-slate-800 dark:text-white">
-          <span className="text-primary">{'<'}</span>{siteConfig.business.name}<span className="text-primary">{'/>'}</span>
+          <span className="text-primary">{'<'}</span>{siteConfig.business.name.split(" ")[0]}<span className="text-primary">{'/>'}</span>
         </Link>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-          {siteConfig.navItems.map((item) => (
+          {navLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -62,21 +71,21 @@ export function Navbar() {
                 className="flex items-center gap-1.5 p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-sm font-medium"
               >
                 <Globe className="w-5 h-5" />
-                <span className="hidden lg:block">{currentLang}</span>
+                <span className="hidden lg:block">{language}</span>
               </button>
 
               {/* Menu Suspenso de Idiomas */}
               {isLangOpen && (
                 <div className="absolute top-full right-0 mt-2 w-32 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-xl overflow-hidden z-50 animate-in slide-in-from-top-2">
                   <button 
-                    onClick={() => changeLanguage("PT")} 
-                    className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors border-b border-slate-100 dark:border-slate-700 flex items-center gap-2 ${currentLang === "PT" ? "text-primary bg-slate-50 dark:bg-slate-800/50" : "text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700"}`}
+                    onClick={() => handleLanguageChange("PT")} 
+                    className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors border-b border-slate-100 dark:border-slate-700 flex items-center gap-2 ${language === "PT" ? "text-primary bg-slate-50 dark:bg-slate-800/50" : "text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700"}`}
                   >
                     🇧🇷 PT-BR
                   </button>
                   <button 
-                    onClick={() => changeLanguage("EN")} 
-                    className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors flex items-center gap-2 ${currentLang === "EN" ? "text-primary bg-slate-50 dark:bg-slate-800/50" : "text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700"}`}
+                    onClick={() => handleLanguageChange("EN")} 
+                    className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors flex items-center gap-2 ${language === "EN" ? "text-primary bg-slate-50 dark:bg-slate-800/50" : "text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700"}`}
                   >
                     🇺🇸 EN-US
                   </button>
@@ -96,7 +105,7 @@ export function Navbar() {
           
           {/* CTA Nav */}
           <Link href="#contact" className="px-6 py-2.5 bg-primary text-white rounded-[4px] font-medium hover:bg-green-700 transition shadow-sm ml-2">
-            Falar Agora
+            {language === "PT" ? "Falar Agora" : "Talk Now"}
           </Link>
         </nav>
 
@@ -109,7 +118,7 @@ export function Navbar() {
       {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-xl p-4 flex flex-col gap-2 animate-in slide-in-from-top-2">
-          {siteConfig.navItems.map((item) => (
+          {navLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -126,10 +135,13 @@ export function Navbar() {
           <div className="flex items-center justify-between p-3">
             <div className="flex items-center gap-4">
               <button 
-                onClick={() => changeLanguage(currentLang === "PT" ? "EN" : "PT")}
+                onClick={() => {
+                  toggleLanguage();
+                  setIsOpen(false);
+                }}
                 className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300"
               >
-                <Globe className="w-5 h-5" /> {currentLang === "PT" ? "Mudar para Inglês" : "Change to Portuguese"}
+                <Globe className="w-5 h-5" /> {t.navbar.changeLang} ({language})
               </button>
             </div>
             

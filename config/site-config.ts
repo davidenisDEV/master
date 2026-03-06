@@ -2,12 +2,21 @@
 
 export const siteConfig = {
   business: {
-    name: "David Oliveira - Full-Stack - Dev",
-    description: "Desenvolvedor Full-Stack focado na construção de soluções escaláveis, automação (ETL) e otimização de processos.",
-    whatsapp: "+55 (85) 99775-1777", // Coloque seu número real aqui
-    email: "daviddenis0112@gmail.com", // Coloque seu email real aqui
+    name: "David Oliveira",
+    role: "Full-Stack Developer",
+    description: "Desenvolvedor Full-Stack focado na construção de soluções escaláveis, automação (ETL) e otimização de processos. Transformo gargalos operacionais em sistemas fluidos e interfaces de alta conversão.",
+    whatsapp: "+55 (85) 99775-1777",
+    email: "daviddenis0112@gmail.com",
     address: "Fortaleza, CE", 
     mapsLink: "#",
+  },
+
+  // 👇 NOVOS LINKS DE REDES SOCIAIS 👇
+  social: {
+    facebook: "https://www.facebook.com/profile.php?id=100075420027062&locale=pt_BR",
+    instagram: "https://www.instagram.com/oliveirinhajrr/",
+    linkedin: "https://www.linkedin.com/in/daviddenisdev/",
+    github: "https://github.com/davidenisDEV"
   },
 
   hours: {
@@ -17,14 +26,44 @@ export const siteConfig = {
   },
 
   theme: {
-    primaryColor: "#4CAF4F", // Verde Nexcent
+    primaryColor: "#4CAF4F", 
     secondaryColor: "#ffffff",
   },
 
   navItems: [
     { label: "Início", href: "#hero" },
-    { label: "Especialidades", href: "#features" },
+    { label: "Sobre", href: "#sobre" },
+    { label: "Especialidades", href: "#services" },
     { label: "Projetos", href: "#portfolio" },
     { label: "Contato", href: "#contact" },
   ],
+
+  about: {
+    avatar: "/denis3d.png", 
+    age: new Date().getFullYear() - 2001, 
+    techStack: [
+      { category: "Front-end", tools: [
+        { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+        { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+        { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+      ]},
+      { category: "Back-end", tools: [
+        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+      ]},
+      { category: "Tools", tools: [
+        { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+        { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+      ]}
+    ],
+    experience: [
+      { name: "Celedonio Advocacia", role: "Next.js & UI/UX", year: "2026", desc: "Landing Page Premium de alta conversão jurídica." },
+      { name: "GoGreen Headshop", role: "SaaS Full-Stack", year: "2026", desc: "SaaS E-commerce e PDV híbrido com Clube VIP." },
+      { name: "FABRIKA ROOM", role: "React UI", year: "2026", desc: "E-commerce imersivo focado em experiência visual." },
+      { name: "PC Cleaner", role: "Python Scripting", year: "2025", desc: "Automação via interface Desktop para otimização de SO." }
+    ]
+  }
 }

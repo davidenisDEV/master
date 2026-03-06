@@ -2,30 +2,37 @@
 
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-
-const testimonials = [
-  { name: "Carlos Eduardo", role: "Diretor de E-commerce", text: "O David pegou nossa necessidade de UI/UX e transformou em uma interface incrivelmente rápida usando React. A taxa de conversão da nossa loja subiu 22% logo na primeira semana após o deploy. Código limpo e entrega no prazo.", rating: 5, initials: "CE", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400" },
-  { name: "Mariana Silva", role: "Gestora de Operações", text: "A automação em Python (ETL) que ele desenvolveu salvou a nossa equipe. O que antes levava 15 horas de trabalho manual com planilhas, agora roda de forma 100% autônoma em poucos minutos. Um baita profissional!", rating: 5, initials: "MS", color: "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400" },
-  { name: "Roberto Almeida", role: "Fundador de Agência", text: "Contratei para desenvolver as landing pages de alta conversão dos meus clientes. A performance técnica de carregamento e as pontuações de SEO (Lighthouse 100) são absurdas. Muito focado em resolver o problema de negócio.", rating: 5, initials: "RA", color: "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-400" }
-];
+import { useLanguage } from "@/components/contexts/LanguageContext"; // <-- IMPORT NOVO
 
 export function Testimonials() {
+  const { t, language } = useLanguage(); // <-- EXTRAINDO O IDIOMA
+
+  // Tradução manual dos depoimentos no próprio componente
+  const testimonialsData = language === "PT" ? [
+    { name: "Carlos Eduardo", role: "Diretor de E-commerce", text: "O David pegou nossa necessidade de UI/UX e transformou em uma interface incrivelmente rápida usando React. A taxa de conversão da nossa loja subiu 22% logo na primeira semana após o deploy. Código limpo e entrega no prazo.", rating: 5, initials: "CE", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400" },
+    { name: "Mariana Silva", role: "Gestora de Operações", text: "A automação em Python (ETL) que ele desenvolveu salvou a nossa equipe. O que antes levava 15 horas de trabalho manual com planilhas, agora roda de forma 100% autônoma em poucos minutos. Um baita profissional!", rating: 5, initials: "MS", color: "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400" },
+    { name: "Roberto Almeida", role: "Fundador de Agência", text: "Contratei para desenvolver as landing pages de alta conversão dos meus clientes. A performance técnica de carregamento e as pontuações de SEO (Lighthouse 100) são absurdas. Muito focado em resolver o problema de negócio.", rating: 5, initials: "RA", color: "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-400" }
+  ] : [
+    { name: "Carlos Eduardo", role: "E-commerce Director", text: "David took our UI/UX needs and transformed them into an incredibly fast React interface. Our store's conversion rate jumped 22% in the first week after deployment. Clean code and delivered on time.", rating: 5, initials: "CE", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400" },
+    { name: "Mariana Silva", role: "Operations Manager", text: "The Python automation (ETL) he developed saved our team. What used to take 15 hours of manual spreadsheet work now runs 100% autonomously in minutes. An outstanding professional!", rating: 5, initials: "MS", color: "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400" },
+    { name: "Roberto Almeida", role: "Agency Founder", text: "I hired him to develop high-conversion landing pages for my clients. The technical loading performance and SEO scores (Lighthouse 100) are absurd. Highly focused on solving business problems.", rating: 5, initials: "RA", color: "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-400" }
+  ];
+
   return (
     <section id="testimonials" className="py-24 relative overflow-hidden bg-slate-50/80 dark:bg-slate-950/80 border-t border-slate-200/50 dark:border-slate-800/50 z-0">
-      
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-slate-800 dark:text-white font-heading leading-tight">
-            Não acredite apenas <br className="hidden md:block" />
-            <span className="text-primary">nas minhas palavras.</span>
+            {t?.testimonials?.title} <br className="hidden md:block" />
+            <span className="text-primary">{t?.testimonials?.titleHighlight}</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-400">Veja o que parceiros e clientes dizem sobre o impacto das soluções desenvolvidas para os seus negócios.</p>
+          <p className="text-slate-600 dark:text-slate-400">{t?.testimonials?.subtitle}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {testimonialsData.map((testimonial, index) => (
             <motion.div 
               key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.15 }}
               className="relative bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl p-8 rounded-3xl shadow-xl dark:shadow-none border border-white/80 dark:border-slate-700/50 flex flex-col group hover:-translate-y-2 transition-transform"

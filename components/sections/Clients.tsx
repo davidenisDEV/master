@@ -1,48 +1,45 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useLanguage } from "@/components/contexts/LanguageContext";
-
-// Adicionei algumas tecnologias a mais (Git, Tailwind) para dar volume à esteira
-const technologies = [
-  { name: "Python", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" },
-  { name: "React", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" },
-  { name: "TypeScript", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" },
-  { name: "Node.js", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" },
-  { name: "PostgreSQL", logo: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" },
-  { name: "Docker", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" },
-  { name: "Tailwind CSS", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" },
-  { name: "Git", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" },
-];
-
-// Triplicamos a lista para criar a ilusão de loop infinito perfeito
-const marqueeTechs = [...technologies, ...technologies, ...technologies];
-
 export function Clients() {
-  const { t } = useLanguage();
+  
+  const clientLogos = [
+    { name: "Celedonio Advocacia", src: "/clients/celedonio-logo.webp" },
+    { name: "GoGreen Headshop", src: "/clients/gogreen-logo.webp" },
+    { name: "Fabrika Room", src: "/clients/fabrika-logo.webp" },
+    { name: "Empresa 4", src: "/clients/empresa4-logo.webp" },
+    { name: "Empresa 5", src: "/clients/empresa5-logo.webp" },
+  ];
+
+  // Triplicamos a lista para criar a ilusão de loop infinito (Marquee)
+  const marqueeLogos = [...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos];
+
   return (
-    <section className="py-12 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800 overflow-hidden">
-      <div className="container mx-auto px-6 text-center mb-10">
-        <h3 className="text-2xl font-semibold text-slate-700 dark:text-white mb-2 font-heading">Minha Stack de Tecnologia</h3>
-        <p className="text-muted-foreground">Ferramentas modernas para resultados de alta performance</p>
-      </div>
+    // Padding sutil, sem textos, focando apenas na prova social visual
+    <section className="py-10 bg-slate-50/50 dark:bg-slate-900/20 border-b border-slate-200/50 dark:border-slate-800/50 overflow-hidden relative z-10">
       
       {/* Container do Marquee */}
       <div className="relative flex overflow-x-hidden group">
         
-        {/* Gradientes laterais (Esfumaçam a entrada e saída dos logos) */}
-        <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
+        {/* Gradientes laterais para fusão com o fundo */}
+        <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
         
-        {/* Pista do Marquee (A classe group-hover pausa a animação ao passar o mouse) */}
-        <div className="flex gap-16 md:gap-24 items-center w-max animate-marquee group-hover:[animation-play-state:paused] px-8">
-          {marqueeTechs.map((tech, index) => (
+        {/* Pista do Marquee (Pausa ao passar o mouse) */}
+        <div className="flex gap-20 md:gap-32 items-center w-max animate-marquee group-hover:[animation-play-state:paused] px-8">
+          {marqueeLogos.map((client, index) => (
             <div 
               key={index}
-              className="w-16 md:w-20 h-16 flex items-center justify-center opacity-60 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 cursor-pointer shrink-0"
-              title={tech.name}
+              // Grayscale remove as cores, e a opacidade reduzida deixa corporativo.
+              // Ao passar o mouse, a logo ganha cor total.
+              className="flex items-center justify-center opacity-40 dark:opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 hover:scale-110 cursor-pointer shrink-0"
+              title={client.name}
             >
-              <img src={tech.logo} alt={tech.name} className="max-h-12 w-auto object-contain" />
+              {/* O ideal é que as imagens sejam PNGs ou WebP com fundo transparente e tenham proporções semelhantes (ex: h-12) */}
+              <img 
+                src={client.src} 
+                alt={`Cliente ${client.name}`} 
+                className="max-h-10 md:max-h-12 w-auto object-contain drop-shadow-sm" 
+              />
             </div>
           ))}
         </div>
