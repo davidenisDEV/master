@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/components/contexts/LanguageContext";
 
 // Adicionei algumas tecnologias a mais (Git, Tailwind) para dar volume à esteira
 const technologies = [
@@ -18,6 +19,7 @@ const technologies = [
 const marqueeTechs = [...technologies, ...technologies, ...technologies];
 
 export function Clients() {
+  const { t } = useLanguage();
   return (
     <section className="py-12 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800 overflow-hidden">
       <div className="container mx-auto px-6 text-center mb-10">
