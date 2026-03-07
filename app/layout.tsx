@@ -4,7 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "./providers";
 import { siteConfig } from "@/config/site-config";
 import { cn } from "@/lib/utils";
-import { LanguageProvider } from "@/components/contexts/LanguageContext"; // <-- IMPORT NOVO
+import { LanguageProvider } from "@/components/contexts/LanguageContext"; 
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-heading" });
@@ -18,7 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background font-sans antialiased", inter.variable, manrope.variable)}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           {/* ENVOLVENDO A APLICAÇÃO COM O IDIOMA */}
           <LanguageProvider>
             {children}

@@ -113,8 +113,8 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* LADO DIREITO: TERMINAL & FORMAS 3D (Glassmorphism) */}
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex justify-center items-center relative">
+          {/* LADO DIREITO: TERMINAL, SVG & FORMAS 3D */}
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex justify-center items-center relative w-full">
             
             {/* Formas Geométricas em Vidro (Flutuando no Fundo) */}
             <motion.div 
@@ -123,11 +123,21 @@ export function Hero() {
             />
             <motion.div 
               animate={{ y: [10, -10, 10], rotate: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -left-8 w-24 h-24 bg-gradient-to-br from-purple-500/30 to-primary/30 rounded-3xl backdrop-blur-xl border border-white/20 z-30 hidden md:block rotate-12"
+              className="absolute -bottom-6 -left-8 w-24 h-24 bg-gradient-to-br from-purple-500/30 to-primary/30 rounded-3xl backdrop-blur-xl border border-white/20 z-10 hidden md:block rotate-12"
             />
 
-            {/* O Terminal Animado */}
+            {/* O Terminal Animado (Mantido intacto) */}
             <TerminalCode language={language} />
+
+            {/* 👇 NOVO: ARTE SVG DA HERO SOBREPOSTA (MENOR E NA FRENTE) 👇 */}
+            <motion.img 
+              src="/svg/hero.svg" 
+              alt="Hero Illustration"
+              animate={{ y: [-8, 8, -8] }} 
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              // z-40 coloca na frente do terminal, w-40/w-56 deixa em tamanho de detalhe
+              className="absolute -bottom-10 -right-4 md:-right-12 md:-bottom-12 w-40 md:w-56 z-40 pointer-events-none drop-shadow-2xl"
+            />
 
           </motion.div>
         </div>

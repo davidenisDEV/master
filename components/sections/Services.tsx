@@ -45,7 +45,7 @@ function SkillCard({ skill, icon, index }: any) {
     setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
-  if (!skill) return null; // Proteção contra undefined
+  if (!skill) return null;
 
   return (
     <motion.div
@@ -80,7 +80,6 @@ function ProjectCard({ project, assets, isReversed, texts }: any) {
   const [currentImg, setCurrentImg] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Blindagem de dados (garante que nunca seja undefined)
   const features = project?.features || [];
   const tags = project?.tags || [];
 
@@ -93,7 +92,7 @@ function ProjectCard({ project, assets, isReversed, texts }: any) {
     return () => clearInterval(interval);
   }, [assets?.images, isHovered]);
 
-  if (!project) return null; // Proteção extra
+  if (!project) return null;
 
   return (
     <motion.div 
@@ -199,16 +198,24 @@ export function Services() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10"></div>
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 dark:bg-primary/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
+        {/* 👇 NOVO: ARTE SVG DE SERVICES FLUTUANDO AO FUNDO 👇 */}
+        <motion.img 
+          src="/svg/services.svg" 
+          alt="Services Illustration"
+          animate={{ y: [-15, 10, -15] }} 
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 -left-10 lg:left-10 w-48 md:w-72 opacity-30 dark:opacity-40 z-0 pointer-events-none"
+        />
+
         <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-16 relative">
             <h2 className="text-3xl md:text-4xl font-semibold text-slate-800 dark:text-white mb-4 font-heading leading-tight">
               {t?.services?.title} <br /> <span className="text-primary">{t?.services?.titleHighlight}</span>
             </h2>
             <p className="text-slate-500 dark:text-slate-400">{t?.services?.subtitle}</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Adicionado a proteção '?' e o fallback '|| []' no map */}
+          <div className="grid md:grid-cols-3 gap-8 relative z-20">
             {t?.services?.skills?.map((skill: any, index: number) => (
               <SkillCard key={index} skill={skill} icon={skillsIcons[index]} index={index} />
             ))}
@@ -231,7 +238,6 @@ export function Services() {
           </div>
 
           <div className="max-w-6xl mx-auto">
-             {/* Adicionado a proteção '?' e o fallback '|| []' no map principal */}
             {t?.services?.projects?.map((project: any, index: number) => (
               <ProjectCard 
                 key={index} 

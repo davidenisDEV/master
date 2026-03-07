@@ -38,7 +38,7 @@ export function Clients() {
               <img 
                 src={client.src} 
                 alt={`Cliente ${client.name}`} 
-                className="max-h-10 md:max-h-12 w-auto object-contain drop-shadow-sm" 
+                className="max-h-15 md:max-h-14 w-auto object-contain drop-shadow-sm" 
               />
             </div>
           ))}
