@@ -14,10 +14,32 @@ const skillsIcons = [
 ];
 
 const projectAssets = [
-  { liveLink: "", githubLink: "https://github.com/davidenisDEV/CeledonioAdvg", images: ["/celedonio.png", "/celedonio2.png", "/celedonio3.png", "/celedonio4.png", "/celedonio5.png", "/celedonio6.png"] },
-  { liveLink: "https://gogreen-4fmn.vercel.app/", githubLink: "https://github.com/davidenisDEV/gogreen", images: ["/gogreenhero.png", "/gogreenheroabraba.png", "/gogreenherokits.png", "/gogreenheroitens.png", "/gogreenclub.png", "/gogreenmusic.png"] },
-  { liveLink: "", githubLink: "https://github.com/davidenisDEV/FBRK", images: ["/fabrika.png", "/fabrika2.png", "/fabrika3.png", "/fabrika4.png", "/fabrika5.png", "/fabrika6.png"] },
-  { liveLink: "", githubLink: "https://github.com/davidenisDEV/limpezaPC", images: [] }
+  // 👇 NOVO PROJETO: Medicao PetShop adicionado no topo 👇
+  { 
+    liveLink: "", 
+    githubLink: "https://github.com/davidenisDEV/petshop", 
+    images: ["/petshop.png", "/petshop2.png", "/petshop3.png", "/petshop4.png", "/petshop5.png", "/petshop6.png"] 
+  },
+  { 
+    liveLink: "", 
+    githubLink: "https://github.com/davidenisDEV/CeledonioAdvg", 
+    images: ["/celedonio.png", "/celedonio2.png", "/celedonio3.png", "/celedonio4.png", "/celedonio5.png", "/celedonio6.png"] 
+  },
+  { 
+    liveLink: "https://gogreen-4fmn.vercel.app/", 
+    githubLink: "https://github.com/davidenisDEV/gogreen", 
+    images: ["/gogreenhero.png", "/gogreenheroabraba.png", "/gogreenherokits.png", "/gogreenheroitens.png", "/gogreenclub.png", "/gogreenmusic.png"] 
+  },
+  { 
+    liveLink: "", 
+    githubLink: "https://github.com/davidenisDEV/FBRK", 
+    images: ["/fabrika.png", "/fabrika2.png", "/fabrika3.png", "/fabrika4.png", "/fabrika5.png", "/fabrika6.png"] 
+  },
+  { 
+    liveLink: "", 
+    githubLink: "https://github.com/davidenisDEV/limpezaPC", 
+    images: [] 
+  }
 ];
 
 // 7. FUNÇÃO HELPER PARA ÍCONES NAS TAGS

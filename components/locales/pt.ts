@@ -43,10 +43,11 @@ export const pt = {
     ptVersion: "Versão em Português",
     enVersion: "English Version",
     projects: [
-      { name: "Celedonio Advocacia", role: "Next.js & UI/UX", desc: "Landing Page Premium de alta conversão jurídica." },
-      { name: "GoGreen Headshop", role: "SaaS Full-Stack", desc: "SaaS E-commerce e PDV híbrido com Clube VIP." },
-      { name: "FABRIKA ROOM", role: "React UI", desc: "E-commerce imersivo focado em experiência visual." },
-      { name: "PC Cleaner", role: "Python Scripting", desc: "Automação via interface Desktop para otimização de SO." }
+      { name: "Medicao PetShop", role: "Next.js & UI/UX", desc: "Landing Page Premium de alta conversão 24h." },
+      { name: "Celedonio Advocacia", role: "Next.js & UI/UX", desc: "Landing Page Premium para captação de leads jurídicos." },
+      { name: "GoGreen Headshop", role: "SaaS Full-Stack", desc: "SaaS Omnichannel (E-commerce + PDV físico) com Clube VIP." },
+      { name: "FABRIKA ROOM", role: "React UI", desc: "E-commerce imersivo focado em redução de abandono de carrinho." },
+      { name: "PC Cleaner", role: "Python Scripting", desc: "Automação via interface Desktop para prolongar vida útil de hardware." }
     ]
   },
   services: {
@@ -72,35 +73,47 @@ export const pt = {
     portfolioTitleHighlight: "com foco em performance.",
     btnLive: "Ver ao Vivo",
     btnRepo: "Repositório",
-    // 👇 NOVO ARRAY DE PROJETOS PARA A SEÇÃO SERVICES 👇
     projects: [
       {
+        title: "Medicao Clínica & Pet Shop",
+        subtitle: "Landing Page de Alta Conversão",
+        desc: "Plataforma web desenvolvida para revolucionar a presença digital no nicho veterinário. Focada em maximizar o agendamento de consultas e vendas, a aplicação combina um design imersivo com uma arquitetura desenhada para guiar o cliente até à conversão em segundos, especialmente em situações de emergência 24h.",
+        features: [
+            "Interface Premium com Glassmorphism e elementos 3D flutuantes",
+            "Funil de Vendas Direto com triagem inteligente via WhatsApp",
+            "Slider 'Antes/Depois' Interativo para prova social de estética animal",
+            "Experiência Mobile-First com navegação inferior estilo App (Bottom Nav)",
+            "Micro-interações de retenção ocular (Custom Cursor e Carrossel Infinito)"
+          ],
+        tags: ["Next.js", "Tailwind", "TypeScript", "Figma"]
+      },
+      {
         title: "Celedonio Advocacia", 
-        subtitle: "Landing Page Premium de Alta Conversão", 
-        desc: "Plataforma digital institucional desenvolvida exclusivamente para o mercado jurídico. O projeto une um design sóbrio e autoritário (utilizando Glassmorphism) com gatilhos de acolhimento e segurança.",
+        subtitle: "Máquina de Captação de Leads", 
+        desc: "Plataforma digital institucional desenvolvida para elevar a autoridade no mercado jurídico. O projeto une um design sóbrio em Dark Glassmorphism a gatilhos mentais de segurança, transformando o tráfego do site em solicitações reais de assessoria jurídica.",
         tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"], 
-        features: ["Design em Dark Glassmorphism", "Funis de conversão isolados", "Timeline visual animada", "Sistema de internacionalização integrado"]
+        features: ["Design de autoridade em Dark Glassmorphism", "Funis de conversão isolados por área de atuação", "Animações fluidas para retenção de atenção", "Sistema de internacionalização e Arquitetura SEO-first"]
       },
       {
         title: "GoGreen Headshop", 
-        subtitle: "SaaS E-commerce & PDV Integrado", 
-        desc: "Uma plataforma híbrida de alta performance desenvolvida do zero. Muito além de uma loja virtual, o sistema conta com um Painel Admin completo (PDV de balcão), gestão de inventário em tempo real e um Clube VIP de fidelização.",
+        subtitle: "SaaS E-commerce & PDV Omnichannel", 
+        desc: "Solução tecnológica completa que unifica vendas físicas e digitais. Muito mais que um e-commerce comum, o ecossistema integra gestão de estoque em tempo real, PDV de balcão de alta velocidade e um Clube VIP projetado para maximizar o LTV (Customer Lifetime Value).",
         tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"], 
-        features: ["Autenticação segura via Google OAuth", "Clube VIP: Sistema de pontuação e resgate", "Checkout direto para o WhatsApp", "Painel Admin para gestão de clientes", "PDV para operações físicas"]
+        features: ["Ecossistema Omnichannel (Sincronização Físico + Digital)", "Clube VIP com gamificação e resgate de pontos", "Checkout otimizado com funil de fechamento no WhatsApp", "Painel Administrativo (CRM) e Gestão Financeira Automática", "Autenticação segura"]
       },
       {
         title: "FABRIKA ROOM", 
-        subtitle: "Plataforma de Experiência e E-commerce", 
-        desc: "Uma plataforma digital moderna e imersiva construída para destacar a identidade visual da marca. O projeto foca em uma interface limpa, transições suaves e uma jornada de navegação otimizada para retenção e conversão de usuários.",
+        subtitle: "E-commerce Imersivo de Alta Performance", 
+        desc: "Plataforma digital construída para transformar a identidade visual da marca em vendas diretas. Com uma navegação ultrarrápida e transições cinematográficas, a interface foi estrategicamente projetada para reduzir o abandono de carrinho e aumentar o tempo de tela do usuário.",
         tags: ["Next.js", "TypeScript", "Tailwind CSS", "UI/UX"], 
-        features: ["Design imersivo com animações fluidas", "Vitrine de coleções otimizada", "Navegação de altíssima performance", "Arquitetura pronta para escalabilidade"]
+        features: ["Experiência cinematográfica com animações fluidas", "Vitrine inteligente de coleções orientada a Up-sell", "Roteamento instantâneo (Zero Page Reload)", "Arquitetura front-end elástica para picos de tráfego"]
       },
       {
         title: "PC Cleaner & Optimizer", 
-        subtitle: "Automação e Performance em Python", 
-        desc: "Uma ferramenta desktop desenvolvida com interface gráfica (GUI) em Python para limpeza profunda e otimização do sistema operativo. Remove arquivos temporários, esvazia cache e melhora a performance do computador de forma segura.",
+        subtitle: "Automação Desktop para Redução de Custos", 
+        desc: "Software desenvolvido em Python para prolongar a vida útil de equipamentos e aumentar a produtividade. Com apenas um clique, a ferramenta realiza varreduras profundas, elimina gargalos de memória e restaura o desempenho original do sistema operacional de forma segura.",
         tags: ["Python", "Automação", "OS Module", "Desktop GUI"], 
-        features: ["Limpeza automática de arquivos temporários", "Otimização de memória e cache", "Interface gráfica amigável", "Execução rápida e segura"]
+        features: ["Automação cirúrgica de varredura e limpeza de disco", "Gerenciamento e otimização de memória RAM/Cache", "Interface Gráfica (GUI) intuitiva para usuários não técnicos", "Execução nativa blindada via OS Module"]
       }
     ]
   },

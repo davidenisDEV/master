@@ -60,6 +60,12 @@ export const siteConfig = {
       ]}
     ],
     experience: [
+      { 
+        name: "Medicao PetShop", 
+        role: "Next.js & UI/UX Premium", 
+        year: "2026", 
+        desc: "Landing Page interativa com Glassmorphism 3D e foco em conversão via WhatsApp." 
+      },
       { name: "Celedonio Advocacia", role: "Next.js & UI/UX", year: "2026", desc: "Landing Page Premium de alta conversão jurídica." },
       { name: "GoGreen Headshop", role: "SaaS Full-Stack", year: "2026", desc: "SaaS E-commerce e PDV híbrido com Clube VIP." },
       { name: "FABRIKA ROOM", role: "React UI", year: "2026", desc: "E-commerce imersivo focado em experiência visual." },

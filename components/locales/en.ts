@@ -43,10 +43,11 @@ export const en = {
     ptVersion: "Portuguese Version",
     enVersion: "English Version",
     projects: [
-      { name: "Celedonio Law Firm", role: "Next.js & UI/UX", desc: "High-conversion premium legal landing page." },
-      { name: "GoGreen Headshop", role: "SaaS Full-Stack", desc: "SaaS E-commerce and hybrid POS with VIP Club." },
-      { name: "FABRIKA ROOM", role: "React UI", desc: "Immersive e-commerce focused on visual experience." },
-      { name: "PC Cleaner", role: "Python Scripting", desc: "Desktop GUI automation for OS optimization." }
+      { name: "Medicao PetShop", role: "Next.js & UI/UX", desc: "High-conversion 24/7 premium landing page." },
+      { name: "Celedonio Law Firm", role: "Next.js & UI/UX", desc: "Premium lead generation machine for the legal market." },
+      { name: "GoGreen Headshop", role: "SaaS Full-Stack", desc: "Omnichannel SaaS (E-commerce + Physical POS) with VIP Club." },
+      { name: "FABRIKA ROOM", role: "React UI", desc: "Immersive e-commerce focused on reducing cart abandonment." },
+      { name: "PC Cleaner", role: "Python Scripting", desc: "Desktop GUI automation to extend hardware lifespan." }
     ]
   },
   services: {
@@ -72,35 +73,47 @@ export const en = {
     portfolioTitleHighlight: "with a focus on performance.",
     btnLive: "Live Preview",
     btnRepo: "Repository",
-    // 👇 NOVO ARRAY DE PROJETOS PARA A SEÇÃO SERVICES 👇
     projects: [
       {
+        title: "Medicao Vet Clinic & Pet Shop",
+        subtitle: "High-Conversion Landing Page",
+        desc: "A web platform developed to revolutionize digital presence in the veterinary niche. Focused on maximizing appointments and sales, the application combines an immersive design with an architecture tailored to guide the client to conversion in seconds, especially during 24/7 emergencies.",
+        features: [
+            "Premium Interface with Glassmorphism and floating 3D elements",
+            "Direct Sales Funnel with smart WhatsApp triage",
+            "Interactive 'Before/After' Slider for grooming social proof",
+            "Mobile-First Experience with App-style Bottom Navigation",
+            "Eye-retention micro-interactions (Custom Cursor & Infinite Scroll)"
+          ],
+        tags: ["Next.js", "Tailwind", "TypeScript", "Figma"]
+      },
+      {
         title: "Celedonio Law Firm", 
-        subtitle: "Premium High-Conversion Landing Page", 
-        desc: "An institutional digital platform developed exclusively for the legal market. The project combines a sober and authoritative design (using Glassmorphism) with triggers of warmth and security.",
+        subtitle: "Premium Lead Generation Machine", 
+        desc: "An institutional digital platform developed to elevate authority in the legal market. The project merges a sober Dark Glassmorphism design with psychological triggers for trust, transforming web traffic into actual legal consulting requests.",
         tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"], 
-        features: ["Dark Glassmorphism Design", "Isolated conversion funnels", "Animated visual timeline", "Integrated internationalization system"]
+        features: ["Authoritative Dark Glassmorphism Design", "Isolated conversion funnels by practice area", "Fluid animations for attention retention", "Integrated internationalization and SEO-first architecture"]
       },
       {
         title: "GoGreen Headshop", 
-        subtitle: "SaaS E-commerce & Integrated POS", 
-        desc: "A high-performance hybrid platform built from scratch. Much more than an online store, the system features a complete Admin Panel (counter POS), real-time inventory management, and a VIP loyalty club.",
+        subtitle: "Omnichannel SaaS E-commerce & POS", 
+        desc: "A complete technological solution that unifies physical and digital sales. Much more than a standard online store, the ecosystem integrates real-time inventory management, a high-speed counter POS, and a VIP Club designed to maximize Customer Lifetime Value (LTV).",
         tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"], 
-        features: ["Secure authentication via Google OAuth", "VIP Club: Points and rewards system", "Smart checkout direct to WhatsApp", "Admin Panel / CRM", "POS for physical operations"]
+        features: ["Omnichannel Ecosystem (Physical + Digital Synchronization)", "VIP Club with gamification and point redemption", "Optimized checkout with direct WhatsApp sales funnel", "Admin Panel (CRM) and Automatic Financial Management", "Secure user authentication"]
       },
       {
         title: "FABRIKA ROOM", 
-        subtitle: "Experience and E-commerce Platform", 
-        desc: "A modern and immersive digital platform built to highlight the brand's visual identity. The project focuses on a clean interface, smooth transitions, and a navigation journey optimized for user retention and conversion.",
+        subtitle: "High-Performance Immersive E-commerce", 
+        desc: "A digital platform built to translate the brand's visual identity into direct sales. Featuring ultra-fast navigation and cinematic transitions, the interface was strategically designed to reduce cart abandonment and increase user screen time.",
         tags: ["Next.js", "TypeScript", "Tailwind CSS", "UI/UX"], 
-        features: ["Immersive design with fluid animations", "Optimized collections showcase", "Ultra-high performance navigation", "Front-end architecture ready for scalability"]
+        features: ["Cinematic experience with fluid animations", "Smart collection showcase geared towards Up-selling", "Instant routing (Zero Page Reload)", "Elastic front-end architecture for traffic spikes"]
       },
       {
         title: "PC Cleaner & Optimizer", 
-        subtitle: "Automation and Performance in Python", 
-        desc: "A desktop tool developed with a graphical user interface (GUI) in Python for deep cleaning and operating system optimization. It securely removes temporary files, empties caches, and improves computer performance.",
+        subtitle: "Desktop Automation for Cost Reduction", 
+        desc: "Software developed in Python to extend hardware lifespan and boost productivity. With just one click, the tool performs deep scans, eliminates memory bottlenecks, and safely restores the original performance of the operating system.",
         tags: ["Python", "Automation", "OS Module", "Desktop GUI"], 
-        features: ["Automatic temp file cleaning", "Memory optimization and cache clearing", "User-friendly graphical interface", "Fast and secure OS-integrated execution"]
+        features: ["Surgical automation for disk scanning and cleaning", "RAM/Cache memory management and optimization", "Intuitive Graphical User Interface (GUI) for non-technical users", "Secure native execution via OS Module"]
       }
     ]
   },
