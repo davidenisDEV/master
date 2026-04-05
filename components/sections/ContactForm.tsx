@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Loader2, ArrowRight, ArrowLeft, Code2, Bot, LayoutTemplate, CheckCircle2, MessageCircle, UserCheck } from "lucide-react";
+import { Loader2, ArrowRight, ArrowLeft, Code2, Bot, LayoutTemplate, CheckCircle2, MessageCircle, UserCheck, Network, LineChart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { siteConfig } from "@/config/site-config"; 
@@ -13,11 +13,12 @@ import { useLanguage } from "@/components/contexts/LanguageContext";
 export function ContactForm() {
   const { t, language } = useLanguage(); 
 
- 
   const formSchema = z.object({
-    service: z.string().min(1, { message: language === "PT" ? "Selecione um serviço." : "Select a service." }),
+    service: z.string().min(1, { message: language === "PT" ? "Selecione um foco principal." : "Select a main focus." }),
     name: z.string().min(2, { message: language === "PT" ? "Seu nome é importante." : "Your name is important." }),
     phone: z.string().min(10, { message: language === "PT" ? "Digite um WhatsApp válido." : "Enter a valid phone number." }),
+    company: z.string().optional(), // Novo campo opcional B2B
+    role: z.string().optional(),    // Novo campo opcional B2B
     email: z.string().email({ message: language === "PT" ? "E-mail inválido." : "Invalid e-mail." }),
     lgpd: z.boolean().refine(val => val === true, { message: language === "PT" ? "Aceite os termos." : "Accept the terms." }),
   });
@@ -30,7 +31,7 @@ export function ContactForm() {
   
   const { register, handleSubmit, trigger, watch, setValue, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(formSchema),
-    defaultValues: { service: "", lgpd: false }
+    defaultValues: { service: "", lgpd: false, company: "", role: "" }
   });
 
   const selectedService = watch("service");
@@ -39,7 +40,7 @@ export function ContactForm() {
   const nextStep = async () => {
     let isStepValid = false;
     if (step === 1) isStepValid = await trigger("service");
-    if (step === 2) isStepValid = await trigger(["name", "phone"]);
+    if (step === 2) isStepValid = await trigger(["name", "phone", "company", "role"]);
     if (isStepValid) setStep((prev) => prev + 1);
   };
 
@@ -50,16 +51,23 @@ export function ContactForm() {
     setIsDuplicate(false); 
     
     try {
+      // Inserção no Supabase com os novos campos (Crie as colunas 'empresa' e 'cargo' se quiser armazená-las separadamente)
+      // Caso contrário, adicionaremos eles formatados na coluna 'origem' para segurança.
+      const origemSegura = `Portfólio | Emp: ${data.company || 'N/A'} | Cargo: ${data.role || 'N/A'}`;
+
       const { error } = await supabase.from('leads').insert([
-        { nome: data.name, whatsapp: data.phone, email: data.email, servico: data.service, origem: 'Portfólio' }
+        { 
+          nome: data.name, 
+          whatsapp: data.phone, 
+          email: data.email, 
+          servico: data.service, 
+          origem: origemSegura 
+        }
       ]);
       
       if (error) {
-        if (error.code === '23505') {
-          setIsDuplicate(true); 
-        } else {
-          throw error; 
-        }
+        if (error.code === '23505') setIsDuplicate(true); 
+        else throw error; 
       }
 
       await new Promise(resolve => setTimeout(resolve, 800)); 
@@ -75,21 +83,22 @@ export function ContactForm() {
   const handleWhatsAppConfirm = () => {
     const whatsappNumber = siteConfig.business.whatsapp.replace(/\D/g, '');
     
-    // Tradução dinâmica do serviço escolhido
-    const serviceName = selectedService === "landing-page" 
-      ? t.contact.step1.opt1 
-      : selectedService === "sistema" 
-        ? t.contact.step1.opt2 
-        : t.contact.step1.opt3;
+    const serviceNameMap: Record<string, string> = {
+      "landing-page": "Landing Page",
+      "automacao": "Automação",
+      "apis": "APIs & Microsserviços",
+      "dados": "Dados & BI"
+    };
+
+    const serviceName = serviceNameMap[selectedService] || selectedService;
     
-    // Tradução da mensagem que chegará no seu WhatsApp
     const msgPT = isDuplicate
-      ? `Olá David! Passei pelo seu portfólio novamente. Gostaria de acelerar e conversar sobre o projeto de ${serviceName}!`
-      : `Olá David! Acabei de enviar meus dados no seu portfólio. Meu nome é ${userName} e tenho interesse no serviço de ${serviceName}.`;
+      ? `Olá David! Sou cliente e gostaria de falar sobre a manutenção e evolução da arquitetura do meu projeto!`
+      : `Olá David! Tenho interesse em estruturar um sistema escalável para a minha empresa e acabei de agendar uma call. Marquei a opção de ${serviceName} no seu site.`;
       
     const msgEN = isDuplicate
-      ? `Hi David! I visited your portfolio again. I'd like to speed things up and talk about the ${serviceName} project!`
-      : `Hi David! I just submitted my details on your portfolio. My name is ${userName} and I'm interested in the ${serviceName} service.`;
+      ? `Hi David! I'm a client and would like to talk about the maintenance and evolution of my project's architecture!`
+      : `Hi David! I'm interested in structuring a scalable system for my company and just scheduled a call. I selected the ${serviceName} option on your site.`;
 
     const finalMsg = language === "PT" ? msgPT : msgEN;
       
@@ -112,7 +121,7 @@ export function ContactForm() {
           </p>
         </div>
 
-        <div className="bg-white/60 dark:bg-slate-900/50 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/80 dark:border-slate-700/50 overflow-hidden relative min-h-[400px]">
+        <div className="bg-white/60 dark:bg-slate-900/50 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/80 dark:border-slate-700/50 overflow-hidden relative min-h-[450px]">
           
           {step < 4 && (
             <div className="absolute top-0 left-0 h-1 bg-white/40 dark:bg-slate-800 w-full z-10">
@@ -129,8 +138,9 @@ export function ContactForm() {
                   <div className="grid gap-4">
                     {[
                       { id: "landing-page", title: t.contact.step1.opt1, icon: <LayoutTemplate className="w-6 h-6" /> },
-                      { id: "sistema", title: t.contact.step1.opt2, icon: <Code2 className="w-6 h-6" /> },
-                      { id: "automacao", title: t.contact.step1.opt3, icon: <Bot className="w-6 h-6" /> },
+                      { id: "automacao", title: t.contact.step1.opt2, icon: <Bot className="w-6 h-6" /> },
+                      { id: "apis", title: t.contact.step1.opt3, icon: <Network className="w-6 h-6" /> },
+                      { id: "dados", title: t.contact.step1.opt4, icon: <LineChart className="w-6 h-6" /> },
                     ].map((svc) => (
                       <div 
                         key={svc.id} onClick={() => setValue("service", svc.id, { shouldValidate: true })}
@@ -139,7 +149,7 @@ export function ContactForm() {
                         }`}
                       >
                         <div className={`${selectedService === svc.id ? "text-primary" : "text-slate-400"}`}>{svc.icon}</div>
-                        <span className="font-medium">{svc.title}</span>
+                        <span className="font-medium text-sm md:text-base">{svc.title}</span>
                       </div>
                     ))}
                   </div>
@@ -150,7 +160,7 @@ export function ContactForm() {
               {step === 2 && (
                 <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <h3 className="text-xl font-medium text-slate-800 dark:text-white mb-6">{t.contact.step2.title}</h3>
-                  <div className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="text-sm font-medium text-slate-600 dark:text-slate-300">{t.contact.step2.nameLabel}</label>
                       <input {...register("name")} className="w-full mt-1 p-4 rounded-xl border border-white/80 dark:border-slate-700/50 bg-white/50 dark:bg-slate-800/50 backdrop-blur-md outline-none focus:border-primary focus:ring-1 focus:ring-primary transition shadow-sm" placeholder={t.contact.step2.namePlaceholder} autoFocus />
@@ -160,6 +170,14 @@ export function ContactForm() {
                       <label className="text-sm font-medium text-slate-600 dark:text-slate-300">{t.contact.step2.phoneLabel}</label>
                       <input {...register("phone")} className="w-full mt-1 p-4 rounded-xl border border-white/80 dark:border-slate-700/50 bg-white/50 dark:bg-slate-800/50 backdrop-blur-md outline-none focus:border-primary focus:ring-1 focus:ring-primary transition shadow-sm" placeholder="(00) 90000-0000" />
                       {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-slate-600 dark:text-slate-300">{t.contact.step2.companyLabel}</label>
+                      <input {...register("company")} className="w-full mt-1 p-4 rounded-xl border border-white/80 dark:border-slate-700/50 bg-white/50 dark:bg-slate-800/50 backdrop-blur-md outline-none focus:border-primary focus:ring-1 focus:ring-primary transition shadow-sm" placeholder="Ex: Tech Corp" />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-slate-600 dark:text-slate-300">{t.contact.step2.roleLabel}</label>
+                      <input {...register("role")} className="w-full mt-1 p-4 rounded-xl border border-white/80 dark:border-slate-700/50 bg-white/50 dark:bg-slate-800/50 backdrop-blur-md outline-none focus:border-primary focus:ring-1 focus:ring-primary transition shadow-sm" placeholder="Ex: CEO, Diretor..." />
                     </div>
                   </div>
                 </motion.div>

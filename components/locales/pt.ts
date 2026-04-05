@@ -9,7 +9,7 @@ export const pt = {
   },
   hero: {
     title: "Soluções escaláveis com",
-    titleHighlight: "Python & React.",
+    titleHighlight: "Python & Go.",
     subtitle: "Transformo os gargalos operacionais da sua empresa em sistemas fluidos, automatizados e focados em alta conversão e escalabilidade.",
     cta: "Iniciar um Projeto",
     ctaSecondary: "Ver Cases de Sucesso",
@@ -138,22 +138,23 @@ export const pt = {
     title: "Simule seu Investimento",
     subtitle: "Monte seu projeto sob medida. Marque as funções necessárias e veja a estimativa em tempo real.",
     step1: "1. O que vamos construir?",
-    servicesOptions: ["Landing Page", "Sistema Web", "Automação (ETL)"],
+    servicesOptions: ["Landing Page", "Automação", "APIs & Microsserviços", "Engenharia de Dados (ETL)"],
     step2: "2. Funcionalidades do Projeto",
     step2Badge: "Selecione o que precisar",
-    step3: "3. Infraestrutura & Prazo",
+    step3: "3. Infraestrutura & Extras",
     infra: [
-      { title: "Banco de Dados (SQL)", desc: "Armazenamento estruturado de informações." },
-      { title: "Setup de Hospedagem / Domínio", desc: "Eu configuro o servidor e o endereço para você." },
+      { title: "Banco de Dados (SQL/NoSQL)", desc: "Arquitetura de armazenamento estruturado." },
+      { title: "Setup Cloud (AWS/GCP)", desc: "Configuração de servidor profissional." },
+      { title: "Consultoria de Arquitetura", desc: "Desenho do sistema antes do código." },
       { title: "Entrega Expressa", desc: "Prioridade máxima de desenvolvimento (+30%)." }
     ],
     result: {
-      badge: "Condição Primeira Parceria (-30%)",
-      from: "De",
-      to: "por:",
-      benefits: ["Código fonte 100% seu.", "Design responsivo e otimizado.", "Suporte gratuito por 30 dias."],
-      btn: "Garantir esse valor",
-      disclaimer: "* Válido apenas para os primeiros clientes do mês. O orçamento exato será confirmado em nossa call."
+      badge: "Estimativa Base",
+      from: "A partir de",
+      to: "aprox:",
+      benefits: ["Código fonte 100% seu.", "Arquitetura moderna e escalável.", "Handover técnico detalhado."],
+      btn: "Agendar Reunião de Alinhamento",
+      disclaimer: "* Esta é uma estimativa base. O orçamento exato será alinhado na nossa call de arquitetura."
     }
   },
   faq: {
@@ -169,18 +170,21 @@ export const pt = {
   },
   contact: {
     title: "Vamos iniciar seu projeto?",
-    subtitle: "Responda rápido para eu entender como posso te ajudar.",
+    subtitle: "Responda rápido para eu entender como posso te ajudar a escalar seu negócio.",
     step1: {
       title: "1. Qual é o foco principal do projeto?",
-      opt1: "Landing Page / Site",
-      opt2: "Sistema Web (React/Node)",
-      opt3: "Automação / Dados (Python)"
+      opt1: "Landing Page (Site rápido para vender seu serviço)",
+      opt2: "Automação (Robôs para fazer o trabalho manual por você)",
+      opt3: "APIs & Microsserviços (O 'motor' por trás de aplicativos)",
+      opt4: "Dados & BI (Transformar planilhas em painéis inteligentes)"
     },
     step2: {
-      title: "2. Como posso te chamar?",
+      title: "2. Me conte um pouco sobre você",
       nameLabel: "Seu Nome",
       namePlaceholder: "Ex: João Silva",
-      phoneLabel: "WhatsApp / Telefone"
+      phoneLabel: "WhatsApp / Telefone",
+      companyLabel: "Nome da Empresa (Opcional)",
+      roleLabel: "Seu Cargo (Opcional)"
     },
     step3: {
       title: "3. Quase lá! Qual seu melhor e-mail?",
@@ -190,9 +194,9 @@ export const pt = {
     step4: {
       titleReturning: "Que bom te ver de novo",
       titleNew: "Tudo certo",
-      descReturning: "Identifiquei que você já possui cadastro comigo. Para agilizarmos a sua solicitação sem perder tempo, clique abaixo e vamos conversar agora mesmo pelo WhatsApp!",
-      descNew: "Dados recebidos com sucesso. Escolha abaixo o melhor horário para nossa videochamada ou me chame direto no WhatsApp.",
-      btnReturning: "Falar no WhatsApp Agora",
+      descReturning: "Identifiquei que você já é cliente! Escolha abaixo o melhor horário para conversarmos sobre a manutenção e evolução do seu sistema.",
+      descNew: "Para desenharmos a arquitetura ideal para a sua empresa, escolha um horário para nossa Call de diagnóstico abaixo.",
+      btnReturning: "Falar sobre Evolução (WhatsApp)",
       btnNew: "Confirmar via WhatsApp"
     },
     buttons: {

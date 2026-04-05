@@ -9,7 +9,7 @@ export const en = {
   },
   hero: {
     title: "Scalable solutions with",
-    titleHighlight: "Python & React.",
+    titleHighlight: "Python & Go.",
     subtitle: "I transform your company's operational bottlenecks into fluid, automated systems focused on high conversion and scalability.",
     cta: "Start a Project",
     ctaSecondary: "View Success Cases",
@@ -138,22 +138,23 @@ export const en = {
     title: "Simulate your Investment",
     subtitle: "Build your custom project. Check the necessary features and see the estimate in real-time.",
     step1: "1. What are we building?",
-    servicesOptions: ["Landing Page", "Web System", "Automation (ETL)"],
+    servicesOptions: ["Landing Page", "Automation", "APIs & Microservices", "Data & ETL"],
     step2: "2. Project Features",
     step2Badge: "Select what you need",
-    step3: "3. Infrastructure & Deadline",
+    step3: "3. Infrastructure & Extras",
     infra: [
-      { title: "Database (SQL)", desc: "Structured information storage." },
-      { title: "Hosting / Domain Setup", desc: "I'll configure the server and the domain address for you." },
+      { title: "Database (SQL/NoSQL)", desc: "Structured data storage architecture." },
+      { title: "Cloud Setup (AWS/GCP)", desc: "Professional server configuration." },
+      { title: "Architecture Consulting", desc: "System design planning before code." },
       { title: "Express Delivery", desc: "Maximum development priority (+30%)." }
     ],
     result: {
-      badge: "First Partnership Condition (-30%)",
-      from: "From",
-      to: "to:",
-      benefits: ["100% your source code.", "Responsive and optimized design.", "Free support for 30 days."],
-      btn: "Secure this price",
-      disclaimer: "* Valid only for the first clients of the month. The exact quote will be confirmed in our call."
+      badge: "Base Estimate",
+      from: "Starting at",
+      to: "approx:",
+      benefits: ["100% your source code.", "Scalable modern architecture.", "Technical handover."],
+      btn: "Schedule Alignment Meeting",
+      disclaimer: "* This is a base estimate. The exact quote will be confirmed in our architecture call."
     }
   },
   faq: {
@@ -169,18 +170,21 @@ export const en = {
   },
   contact: {
     title: "Shall we start your project?",
-    subtitle: "Reply quickly so I can understand how to help you.",
+    subtitle: "Reply quickly so I can understand how to help you scale your business.",
     step1: {
       title: "1. What is the main focus of the project?",
-      opt1: "Landing Page / Website",
-      opt2: "Web System (React/Node)",
-      opt3: "Automation / Data (Python)"
+      opt1: "Landing Page (Fast site to sell your service)",
+      opt2: "Automation (Bots to do manual work for you)",
+      opt3: "APIs & Microservices (The 'engine' behind apps)",
+      opt4: "Data & BI (Turn messy data into smart dashboards)"
     },
     step2: {
-      title: "2. What should I call you?",
+      title: "2. Tell me a bit about you",
       nameLabel: "Your Name",
       namePlaceholder: "Ex: John Smith",
-      phoneLabel: "WhatsApp / Phone Number"
+      phoneLabel: "WhatsApp / Phone Number",
+      companyLabel: "Company Name (Optional)",
+      roleLabel: "Your Role (Optional)"
     },
     step3: {
       title: "3. Almost there! What's your best e-mail?",
@@ -190,9 +194,9 @@ export const en = {
     step4: {
       titleReturning: "Good to see you again",
       titleNew: "All set",
-      descReturning: "I noticed you already have a registration with me. To speed up your request without wasting time, click below and let's chat right now on WhatsApp!",
-      descNew: "Data received successfully. Choose the best time below for our video call or text me directly on WhatsApp.",
-      btnReturning: "Talk on WhatsApp Now",
+      descReturning: "I noticed you're already a client! Choose the best time below so we can discuss the maintenance and evolution of your system.",
+      descNew: "To design the ideal architecture for your company, choose a time below for our Discovery Call.",
+      btnReturning: "Talk about Evolution (WhatsApp)",
       btnNew: "Confirm via WhatsApp"
     },
     buttons: {
