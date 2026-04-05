@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Code2, Terminal as TerminalIcon } from "lucide-react";
 import { useLanguage } from "@/components/contexts/LanguageContext";
 
-// Subcomponente do Terminal Animado (ATUALIZADO PARA DATA/BACKEND)
+// Subcomponente do Terminal Animado
 const TerminalCode = ({ language }: { language: string }) => {
   const codeLines = [
     { text: "import go_router, rabbitmq", color: "text-purple-400" },
@@ -42,7 +42,7 @@ const TerminalCode = ({ language }: { language: string }) => {
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.3, duration: 0.3 }}
-            className={`${line.color} ${line.indent ? "ml-4" : ""} ${line.indent2 ? "ml-8" : ""}`}
+            className={`${line.color} ${line.indent ? "ml-4" : ""}`}
           >
             {line.text}
           </motion.div>

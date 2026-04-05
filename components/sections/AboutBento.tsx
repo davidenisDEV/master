@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Copy, Download, Mail, MapPin, Smartphone, User, ChevronDown, Globe, Github, Linkedin, Instagram, Facebook } from "lucide-react";
+import { Check, Download, Mail, Smartphone, User, ChevronDown, Globe, Github, Linkedin, Instagram, Facebook } from "lucide-react";
 import { useState } from "react";
 import { siteConfig } from "@/config/site-config";
 import { useLanguage } from "@/components/contexts/LanguageContext"; 
@@ -131,7 +131,6 @@ export function AboutBento() {
             </div>
           </BentoCard>
 
-          {/* NOVO: Tech Stack com Grid apropriado para 4 categorias */}
           <BentoCard className="md:col-span-2 flex flex-col justify-center">
             <h4 className="text-sm font-bold text-slate-800 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">
               {t?.aboutBento?.stackTitle || "Competências Técnicas"}
