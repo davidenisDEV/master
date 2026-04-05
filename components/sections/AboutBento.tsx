@@ -44,10 +44,8 @@ export function AboutBento() {
   return (
     <section id="sobre" className="py-24 relative overflow-hidden bg-slate-50/80 dark:bg-slate-950/80 z-0 border-t border-slate-200/50 dark:border-slate-800/50">
       
-      {/* BACKGROUND GRIDS & GLOWS */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10"></div>
       
-      {/* FORMAS GLASSMORPHISM 3D FLUTUANTES */}
       <motion.div 
         animate={{ y: [-20, 20, -20], rotate: [0, 10, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-1/4 left-10 w-[300px] h-[300px] bg-gradient-to-tr from-primary/20 to-blue-500/20 rounded-full backdrop-blur-3xl border border-white/10 shadow-[0_0_50px_rgba(76,175,80,0.1)] hidden lg:block -z-10"
@@ -67,9 +65,7 @@ export function AboutBento() {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-auto relative z-20">
           
-          {/* 👇 1. CARD AVATAR & BIO - AJUSTADO COM OVERFLOW={FALSE} E PADDING TOP 👇 */}
           <BentoCard overflowHidden={false} className="md:col-span-2 row-span-2 flex flex-col justify-center gap-6 text-center sm:text-left">
-        
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 pt-4 sm:pt-8">
               
               <div 
@@ -115,7 +111,6 @@ export function AboutBento() {
             </div>
           </BentoCard>
 
-          {/* 2. CARD PROJETOS/FREELAS */}
           <BentoCard className="md:col-span-2 row-span-2 flex flex-col">
             <h4 className="text-lg font-bold text-slate-800 dark:text-white mb-6 border-b border-slate-200 dark:border-slate-700 pb-2 flex items-center justify-between">
               {t?.aboutBento?.experienceTitle}
@@ -136,12 +131,11 @@ export function AboutBento() {
             </div>
           </BentoCard>
 
-          {/* 3. CARD TECH STACK (Categorias Separadas) */}
+          {/* NOVO: Tech Stack com Grid apropriado para 4 categorias */}
           <BentoCard className="md:col-span-2 flex flex-col justify-center">
             <h4 className="text-sm font-bold text-slate-800 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">
               {t?.aboutBento?.stackTitle || "Competências Técnicas"}
             </h4>
-            {/* 👇 MUDANÇA AQUI: Transformado em Grid 2 colunas para suportar 4 categorias melhor */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {siteConfig.about.techStack.map((stack, i) => (
                 <div key={i} className="flex flex-col gap-2 bg-white/40 dark:bg-slate-800/40 p-3 rounded-xl border border-white/60 dark:border-slate-700/50">
@@ -161,7 +155,6 @@ export function AboutBento() {
             </div>
           </BentoCard>
 
-          {/* 5. CARD DE IDIOMAS */}
           <BentoCard className="md:col-span-1 flex flex-col justify-center">
             <h4 className="text-sm font-bold text-slate-800 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">
               {language === "PT" ? "Idiomas" : "Languages"}
@@ -184,7 +177,6 @@ export function AboutBento() {
             </div>
           </BentoCard>
 
-          {/* 6. CARD REDES SOCIAIS EXCLUSIVO */}
           <BentoCard className="md:col-span-1 flex flex-col justify-center items-center">
              <h4 className="text-sm font-bold text-slate-800 dark:text-white mb-4 border-b w-full text-left border-slate-200 dark:border-slate-700 pb-2">
               {language === "PT" ? "Conecte-se" : "Connect"}
@@ -197,7 +189,6 @@ export function AboutBento() {
             </div>
           </BentoCard>
 
-          {/* CARD DE DETALHES INFERIOR E BOTÃO CV */}
           <BentoCard overflowHidden={false} className="col-span-full flex flex-col md:flex-row gap-6 md:gap-4 items-center justify-between bg-white/80 dark:bg-slate-900/80 z-30">
             
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 w-full md:w-auto">

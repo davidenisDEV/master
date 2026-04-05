@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Code2, Terminal as TerminalIcon } from "lucide-react";
 import { useLanguage } from "@/components/contexts/LanguageContext";
-import { useState, useEffect } from "react";
 
+// Subcomponente do Terminal Animado (ATUALIZADO PARA DATA/BACKEND)
 const TerminalCode = ({ language }: { language: string }) => {
   const codeLines = [
     { text: "import go_router, rabbitmq", color: "text-purple-400" },
