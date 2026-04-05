@@ -75,6 +75,18 @@ export const pt = {
     btnRepo: "Repositório",
     projects: [
       {
+        title: "Motor de Risco de Crédito Distribuído",
+        subtitle: "High-Performance Backend & EDA",
+        desc: "Um sistema distribuído, assíncrono e de alta disponibilidade projetado para avaliar o risco de microtransações em tempo real, sem impactar a latência do usuário final. Desacoplamento perfeito através de arquitetura orientada a eventos.",
+        features: [
+            "Ingestão ultra-rápida de dados com Go (Goroutines)",
+            "Mensageria e controle de fila com RabbitMQ",
+            "Motor de regras analítico com Python (Pandas/Pydantic)",
+            "Resiliência a falhas e Idempotência com PostgreSQL"
+          ],
+        tags: ["Go", "Python", "RabbitMQ", "PostgreSQL", "Docker"]
+      },
+      {
         title: "Medicao Clínica & Pet Shop",
         subtitle: "Landing Page de Alta Conversão",
         desc: "Plataforma web desenvolvida para revolucionar a presença digital no nicho veterinário. Focada em maximizar o agendamento de consultas e vendas, a aplicação combina um design imersivo com uma arquitetura desenhada para guiar o cliente até à conversão em segundos, especialmente em situações de emergência 24h.",

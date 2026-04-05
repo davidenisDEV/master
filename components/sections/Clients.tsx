@@ -7,14 +7,13 @@ export function Clients() {
     { name: "GoGreen Headshop", src: "/clients/gogreen-logo.webp" },
     { name: "Fabrika Room", src: "/clients/fabrika-logo.webp" },
     { name: "Empresa 4", src: "/clients/medica-logo.webp" },
-    { name: "Empresa 5", src: "/clients/empresa5-logo.webp" },
+    { name: "Empresa 5", src: "/clients/drone-logo.webp" },
   ];
 
-  // Triplicamos a lista para criar a ilusão de loop infinito (Marquee)
   const marqueeLogos = [...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
-    // Padding sutil, sem textos, focando apenas na prova social visual
+
     <section className="py-10 bg-slate-50/50 dark:bg-slate-900/20 border-b border-slate-200/50 dark:border-slate-800/50 overflow-hidden relative z-10">
       
       {/* Container do Marquee */}
@@ -29,8 +28,6 @@ export function Clients() {
           {marqueeLogos.map((client, index) => (
             <div 
               key={index}
-              // Grayscale remove as cores, e a opacidade reduzida deixa corporativo.
-              // Ao passar o mouse, a logo ganha cor total.
               className="flex items-center justify-center opacity-40 dark:opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 hover:scale-110 cursor-pointer shrink-0"
               title={client.name}
             >

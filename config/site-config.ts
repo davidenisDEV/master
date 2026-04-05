@@ -10,26 +10,21 @@ export const siteConfig = {
     address: "Fortaleza, CE", 
     mapsLink: "#",
   },
-
-  // 👇 NOVOS LINKS DE REDES SOCIAIS 👇
   social: {
     facebook: "https://www.facebook.com/profile.php?id=100075420027062&locale=pt_BR",
     instagram: "https://www.instagram.com/oliveirinhajrr/",
     linkedin: "https://www.linkedin.com/in/daviddenisdev/",
     github: "https://github.com/davidenisDEV"
   },
-
   hours: {
     open: 8, 
     close: 18, 
     timezone: "America/Fortaleza",
   },
-
   theme: {
     primaryColor: "#4CAF4F", 
     secondaryColor: "#ffffff",
   },
-
   navItems: [
     { label: "Início", href: "#hero" },
     { label: "Sobre", href: "#sobre" },
@@ -37,29 +32,40 @@ export const siteConfig = {
     { label: "Projetos", href: "#portfolio" },
     { label: "Contato", href: "#contact" },
   ],
-
   about: {
     avatar: "/denis3d.png", 
     age: new Date().getFullYear() - 2001, 
     techStack: [
-      { category: "Front-end", tools: [
-        { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-        { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-        { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-        { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-      ]},
-      { category: "Back-end", tools: [
-        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+      { category: "Back-end & Arquitetura", tools: [
         { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-        { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+        { name: "Go", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" },
+        { name: "RabbitMQ", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg" },
+        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
       ]},
-      { category: "Tools", tools: [
+      { category: "Banco de Dados & ETL", tools: [
+        { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+        { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+        { name: "SQL Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" },
+        { name: "Supabase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
+      ]},
+      { category: "Front-end & UI", tools: [
+        { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+        { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+      ]},
+      { category: "Ferramentas", tools: [
         { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
         { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-        { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+        { name: "Pydantic", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" }, // Pydantic usa ícone Python
       ]}
     ],
     experience: [
+      { 
+        name: "Credit Risk Engine", 
+        role: "Sistemas Distribuídos & EDA", 
+        year: "2026", 
+        desc: "Motor de análise de risco assíncrono processando microtransações com Go, Python e RabbitMQ." 
+      },
       { 
         name: "Medicao PetShop", 
         role: "Next.js & UI/UX Premium", 

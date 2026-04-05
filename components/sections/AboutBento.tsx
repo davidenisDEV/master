@@ -69,7 +69,7 @@ export function AboutBento() {
           
           {/* 👇 1. CARD AVATAR & BIO - AJUSTADO COM OVERFLOW={FALSE} E PADDING TOP 👇 */}
           <BentoCard overflowHidden={false} className="md:col-span-2 row-span-2 flex flex-col justify-center gap-6 text-center sm:text-left">
-            {/* Adicionado pt-4 sm:pt-8 para dar espaço para a cabeça respirar */}
+        
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 pt-4 sm:pt-8">
               
               <div 
@@ -109,7 +109,7 @@ export function AboutBento() {
                 </div>
 
                 <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  {t?.aboutBento?.bioDesc}
+                  {t?.aboutBento?.bioDesc || siteConfig.business.description}
                 </p>
               </div>
             </div>
@@ -139,19 +139,20 @@ export function AboutBento() {
           {/* 3. CARD TECH STACK (Categorias Separadas) */}
           <BentoCard className="md:col-span-2 flex flex-col justify-center">
             <h4 className="text-sm font-bold text-slate-800 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">
-              {t?.aboutBento?.stackTitle}
+              {t?.aboutBento?.stackTitle || "Competências Técnicas"}
             </h4>
-            <div className="space-y-4">
+            {/* 👇 MUDANÇA AQUI: Transformado em Grid 2 colunas para suportar 4 categorias melhor */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {siteConfig.about.techStack.map((stack, i) => (
-                <div key={i} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider w-20 shrink-0">
+                <div key={i} className="flex flex-col gap-2 bg-white/40 dark:bg-slate-800/40 p-3 rounded-xl border border-white/60 dark:border-slate-700/50">
+                  <span className="text-[10px] font-bold text-primary uppercase tracking-wider">
                     {stack.category}
                   </span>
-                  <div className="flex flex-wrap gap-2 flex-grow">
+                  <div className="flex flex-wrap gap-2">
                     {stack.tools.map((tool, j) => (
-                      <div key={j} className="flex items-center gap-1.5 bg-white/50 dark:bg-slate-900/50 border border-white dark:border-slate-700 shadow-sm px-2.5 py-1.5 rounded-lg hover:scale-105 hover:border-primary/50 transition-all cursor-help" title={tool.name}>
+                      <div key={j} className="flex items-center gap-1.5 bg-white/80 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm px-2 py-1 rounded-md hover:scale-105 hover:border-primary/50 transition-all cursor-help" title={tool.name}>
                         <img src={tool.icon} alt={tool.name} className="w-3.5 h-3.5 object-contain" />
-                        <span className="text-[11px] font-medium text-slate-700 dark:text-slate-300">{tool.name}</span>
+                        <span className="text-[10px] font-medium text-slate-700 dark:text-slate-300">{tool.name}</span>
                       </div>
                     ))}
                   </div>

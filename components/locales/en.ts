@@ -75,6 +75,18 @@ export const en = {
     btnRepo: "Repository",
     projects: [
       {
+        title: "Distributed Credit Risk Engine",
+        subtitle: "High-Performance Backend & EDA",
+        desc: "A highly available, asynchronous, and distributed system designed to evaluate microtransaction risk in real-time without impacting end-user latency. Perfect decoupling through event-driven architecture.",
+        features: [
+            "Ultra-fast data ingestion with Go (Goroutines)",
+            "Messaging and queue control with RabbitMQ",
+            "Analytical rule engine with Python (Pandas/Pydantic)",
+            "Fault resilience and Idempotency with PostgreSQL"
+          ],
+        tags: ["Go", "Python", "RabbitMQ", "PostgreSQL", "Docker"]
+      },
+      {
         title: "Medicao Vet Clinic & Pet Shop",
         subtitle: "High-Conversion Landing Page",
         desc: "A web platform developed to revolutionize digital presence in the veterinary niche. Focused on maximizing appointments and sales, the application combines an immersive design with an architecture tailored to guide the client to conversion in seconds, especially during 24/7 emergencies.",
