@@ -44,7 +44,7 @@ export const en = {
     enVersion: "English Version",
     projects: [
       { name: "Wave Production", role: "Next.js & Premium UI/UX", desc: "Premium landing page for audiovisual production company." },
-      { name: "FABRIKA ROOM", role: "React UI", desc: "Immersive e-commerce focused on reducing cart abandonment." },
+      { name: "FABRIKA ROOM", role: "React UI Underground", desc: "Immersive e-commerce focused on reducing cart abandonment." },
       { name: "Credit Risk Engine", role: "Distributed Systems & EDA", desc: "Asynchronous risk analysis engine processing microtransactions with Go, Python and RabbitMQ." },
       { name: "Celedonio Law Firm", role: "Next.js & UI/UX", desc: "Premium lead generation machine for the legal market." },
       { name: "GoGreen Headshop", role: "SaaS Full-Stack", desc: "Omnichannel SaaS (E-commerce + Physical POS) with VIP Club." },

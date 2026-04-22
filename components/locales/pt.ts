@@ -44,7 +44,7 @@ export const pt = {
     enVersion: "English Version",
     projects: [
       { name: "Wave Produtora", role: "Next.js & UI/UX Premium", desc: "Landing Page Premium para produtora de audiovisual." },
-      { name: "FABRIKA ROOM", role: "React UI", desc: "E-commerce imersivo focado em redução de abandono de carrinho." },
+      { name: "FABRIKA ROOM", role: "React UI Underground", desc: "E-commerce imersivo focado em redução de abandono de carrinho." },
       { name: "Credit Risk Engine", role: "Sistemas Distribuídos & EDA", desc: "Motor de análise de risco assíncrono processando microtransações com Go, Python e RabbitMQ." },
       { name: "Celedonio Advocacia", role: "Next.js & UI/UX", desc: "Landing Page Premium para captação de leads jurídicos." },
       { name: "GoGreen Headshop", role: "SaaS Full-Stack", desc: "SaaS Omnichannel (E-commerce + PDV físico) com Clube VIP." },
