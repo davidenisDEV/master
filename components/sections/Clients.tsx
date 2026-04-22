@@ -6,8 +6,8 @@ export function Clients() {
     { name: "Celedonio Advocacia", src: "/clients/celedonio-logo.webp" },
     { name: "GoGreen Headshop", src: "/clients/gogreen-logo.webp" },
     { name: "Fabrika Room", src: "/clients/fabrika-logo.webp" },
-    { name: "Empresa 4", src: "/clients/medica-logo.webp" },
-    { name: "Empresa 5", src: "/clients/drone-logo.webp" },
+    { name: "DDrones Works", src: "/clients/drone-logo.webp" },
+    { name: "Wave Produtora", src: "/clients/wave-prod.webp" },
   ];
 
   const marqueeLogos = [...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos];

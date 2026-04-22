@@ -14,41 +14,41 @@ const skillsIcons = [
 
 const projectAssets = [
   { 
+    id: "Wave Produtora",
+    liveLink: "produtorawave.com", 
+    githubLink: "https://github.com/davidenisDEV/wave-produtora", 
+    images: ["/waveprod/waveprod.png", "/waveprod/waveprod2.png", "/waveprod/waveprod3.png", "/waveprod/waveprod4.png"] 
+  },
+  { 
+    id: "fabrika",
+    liveLink: "", 
+    githubLink: "https://github.com/davidenisDEV/FBRK", 
+    images: ["/fabrika/fabrika.png", "/fabrika/fabrika2.png", "/fabrika/fabrika3.png", "/fabrika/fabrika4.png", "/fabrika/fabrika5.png", "/fabrika/fabrika6.png"] 
+  },
+  { 
     id: "credit-risk",
     liveLink: "", 
     githubLink: "https://github.com/davidenisDEV/credit-risk-system", 
     images: [] 
   },
   { 
-    id: "petshop",
-    liveLink: "", 
-    githubLink: "https://github.com/davidenisDEV/petshop", 
-    images: ["/petshop.png", "/petshop2.png", "/petshop3.png", "/petshop4.png", "/petshop5.png", "/petshop6.png"] 
-  },
-  { 
     id: "celedonio",
     liveLink: "", 
     githubLink: "https://github.com/davidenisDEV/CeledonioAdvg", 
-    images: ["/celedonio.png", "/celedonio2.png", "/celedonio3.png", "/celedonio4.png", "/celedonio5.png", "/celedonio6.png"] 
+    images: ["/celedonio/celedonio.png", "/celedonio/celedonio2.png", "/celedonio/celedonio3.png", "/celedonio/celedonio4.png", "/celedonio/celedonio5.png", "/celedonio/celedonio6.png"] 
   },
   { 
     id: "gogreen",
     liveLink: "https://gogreen-4fmn.vercel.app/", 
     githubLink: "https://github.com/davidenisDEV/gogreen", 
-    images: ["/gogreenhero.png", "/gogreenheroabraba.png", "/gogreenherokits.png", "/gogreenheroitens.png", "/gogreenclub.png", "/gogreenmusic.png"] 
+    images: ["/gogreen/gogreenhero.png", "/gogreen/gogreenheroabraba.png", "/gogreen/gogreenherokits.png", "/gogreen/gogreenheroitens.png", "/gogreen/gogreenclub.png", "/gogreen/gogreenmusic.png"] 
   },
   { 
-    id: "fabrika",
+    id: "petshop",
     liveLink: "", 
-    githubLink: "https://github.com/davidenisDEV/FBRK", 
-    images: ["/fabrika.png", "/fabrika2.png", "/fabrika3.png", "/fabrika4.png", "/fabrika5.png", "/fabrika6.png"] 
+    githubLink: "https://github.com/davidenisDEV/petshop", 
+    images: ["/medicao/petshop.png", "/medicao/petshop2.png", "/medicao/petshop3.png", "/medicao/petshop4.png", "/medicao/petshop5.png", "/medicao/petshop6.png"] 
   },
-  { 
-    id: "pc-cleaner",
-    liveLink: "", 
-    githubLink: "https://github.com/davidenisDEV/limpezaPC", 
-    images: [] 
-  }
 ];
 
 const getDevicon = (tag: string) => {

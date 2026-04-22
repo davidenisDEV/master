@@ -43,11 +43,12 @@ export const pt = {
     ptVersion: "Versão em Português",
     enVersion: "English Version",
     projects: [
-      { name: "Medicao PetShop", role: "Next.js & UI/UX", desc: "Landing Page Premium de alta conversão 24h." },
+      { name: "Wave Produtora", role: "Next.js & UI/UX Premium", desc: "Landing Page Premium para produtora de audiovisual." },
+      { name: "FABRIKA ROOM", role: "React UI", desc: "E-commerce imersivo focado em redução de abandono de carrinho." },
+      { name: "Credit Risk Engine", role: "Sistemas Distribuídos & EDA", desc: "Motor de análise de risco assíncrono processando microtransações com Go, Python e RabbitMQ." },
       { name: "Celedonio Advocacia", role: "Next.js & UI/UX", desc: "Landing Page Premium para captação de leads jurídicos." },
       { name: "GoGreen Headshop", role: "SaaS Full-Stack", desc: "SaaS Omnichannel (E-commerce + PDV físico) com Clube VIP." },
-      { name: "FABRIKA ROOM", role: "React UI", desc: "E-commerce imersivo focado em redução de abandono de carrinho." },
-      { name: "PC Cleaner", role: "Python Scripting", desc: "Automação via interface Desktop para prolongar vida útil de hardware." }
+      { name: "Medicao PetShop", role: "Next.js & UI/UX Premium", desc: "Landing Page interativa com Glassmorphism 3D e foco em conversão via WhatsApp." }
     ]
   },
   services: {
@@ -75,6 +76,25 @@ export const pt = {
     btnRepo: "Repositório",
     projects: [
       {
+        title: "Wave Produtora",
+        subtitle: "Next.js & UI/UX Premium",
+        desc: "Plataforma digital imersiva focada no mercado audiovisual. Desenvolvida para exibir portfólios de vídeos de alta qualidade com performance extrema, unindo design sofisticado e otimização para retenção de clientes e conversão direta.",
+        tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        features: [
+          "Experiência visual premium com Glassmorphism",
+          "Galeria de vídeos otimizada para carregamento rápido",
+          "Animações fluidas projetadas para retenção de atenção",
+          "Arquitetura focada em Core Web Vitals"
+        ]
+      },
+      {
+        title: "FABRIKA ROOM", 
+        subtitle: "E-commerce Imersivo de Alta Performance", 
+        desc: "Plataforma digital construída para transformar a identidade visual da marca em vendas diretas. Com uma navegação ultrarrápida e transições cinematográficas, a interface foi estrategicamente projetada para reduzir o abandono de carrinho e aumentar o tempo de tela do usuário.",
+        tags: ["Next.js", "TypeScript", "Tailwind CSS", "UI/UX"], 
+        features: ["Experiência cinematográfica com animações fluidas", "Vitrine inteligente de coleções orientada a Up-sell", "Roteamento instantâneo (Zero Page Reload)", "Arquitetura front-end elástica para picos de tráfego"]
+      },
+      {
         title: "Motor de Risco de Crédito Distribuído",
         subtitle: "High-Performance Backend & EDA",
         desc: "Um sistema distribuído, assíncrono e de alta disponibilidade projetado para avaliar o risco de microtransações em tempo real, sem impactar a latência do usuário final. Desacoplamento perfeito através de arquitetura orientada a eventos.",
@@ -85,19 +105,6 @@ export const pt = {
             "Resiliência a falhas e Idempotência com PostgreSQL"
           ],
         tags: ["Go", "Python", "RabbitMQ", "PostgreSQL", "Docker"]
-      },
-      {
-        title: "Medicao Clínica & Pet Shop",
-        subtitle: "Landing Page de Alta Conversão",
-        desc: "Plataforma web desenvolvida para revolucionar a presença digital no nicho veterinário. Focada em maximizar o agendamento de consultas e vendas, a aplicação combina um design imersivo com uma arquitetura desenhada para guiar o cliente até à conversão em segundos, especialmente em situações de emergência 24h.",
-        features: [
-            "Interface Premium com Glassmorphism e elementos 3D flutuantes",
-            "Funil de Vendas Direto com triagem inteligente via WhatsApp",
-            "Slider 'Antes/Depois' Interativo para prova social de estética animal",
-            "Experiência Mobile-First com navegação inferior estilo App (Bottom Nav)",
-            "Micro-interações de retenção ocular (Custom Cursor e Carrossel Infinito)"
-          ],
-        tags: ["Next.js", "Tailwind", "TypeScript", "Figma"]
       },
       {
         title: "Celedonio Advocacia", 
@@ -114,18 +121,17 @@ export const pt = {
         features: ["Ecossistema Omnichannel (Sincronização Físico + Digital)", "Clube VIP com gamificação e resgate de pontos", "Checkout otimizado com funil de fechamento no WhatsApp", "Painel Administrativo (CRM) e Gestão Financeira Automática", "Autenticação segura"]
       },
       {
-        title: "FABRIKA ROOM", 
-        subtitle: "E-commerce Imersivo de Alta Performance", 
-        desc: "Plataforma digital construída para transformar a identidade visual da marca em vendas diretas. Com uma navegação ultrarrápida e transições cinematográficas, a interface foi estrategicamente projetada para reduzir o abandono de carrinho e aumentar o tempo de tela do usuário.",
-        tags: ["Next.js", "TypeScript", "Tailwind CSS", "UI/UX"], 
-        features: ["Experiência cinematográfica com animações fluidas", "Vitrine inteligente de coleções orientada a Up-sell", "Roteamento instantâneo (Zero Page Reload)", "Arquitetura front-end elástica para picos de tráfego"]
-      },
-      {
-        title: "PC Cleaner & Optimizer", 
-        subtitle: "Automação Desktop para Redução de Custos", 
-        desc: "Software desenvolvido em Python para prolongar a vida útil de equipamentos e aumentar a produtividade. Com apenas um clique, a ferramenta realiza varreduras profundas, elimina gargalos de memória e restaura o desempenho original do sistema operacional de forma segura.",
-        tags: ["Python", "Automação", "OS Module", "Desktop GUI"], 
-        features: ["Automação cirúrgica de varredura e limpeza de disco", "Gerenciamento e otimização de memória RAM/Cache", "Interface Gráfica (GUI) intuitiva para usuários não técnicos", "Execução nativa blindada via OS Module"]
+        title: "Medicao Clínica & Pet Shop",
+        subtitle: "Landing Page de Alta Conversão",
+        desc: "Plataforma web desenvolvida para revolucionar a presença digital no nicho veterinário. Focada em maximizar o agendamento de consultas e vendas, a aplicação combina um design imersivo com uma arquitetura desenhada para guiar o cliente até à conversão em segundos, especialmente em situações de emergência 24h.",
+        features: [
+            "Interface Premium com Glassmorphism e elementos 3D flutuantes",
+            "Funil de Vendas Direto com triagem inteligente via WhatsApp",
+            "Slider 'Antes/Depois' Interativo para prova social de estética animal",
+            "Experiência Mobile-First com navegação inferior estilo App (Bottom Nav)",
+            "Micro-interações de retenção ocular (Custom Cursor e Carrossel Infinito)"
+          ],
+        tags: ["Next.js", "Tailwind", "TypeScript", "Figma"]
       }
     ]
   },

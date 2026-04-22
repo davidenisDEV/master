@@ -43,11 +43,12 @@ export const en = {
     ptVersion: "Portuguese Version",
     enVersion: "English Version",
     projects: [
-      { name: "Medicao PetShop", role: "Next.js & UI/UX", desc: "High-conversion 24/7 premium landing page." },
+      { name: "Wave Production", role: "Next.js & Premium UI/UX", desc: "Premium landing page for audiovisual production company." },
+      { name: "FABRIKA ROOM", role: "React UI", desc: "Immersive e-commerce focused on reducing cart abandonment." },
+      { name: "Credit Risk Engine", role: "Distributed Systems & EDA", desc: "Asynchronous risk analysis engine processing microtransactions with Go, Python and RabbitMQ." },
       { name: "Celedonio Law Firm", role: "Next.js & UI/UX", desc: "Premium lead generation machine for the legal market." },
       { name: "GoGreen Headshop", role: "SaaS Full-Stack", desc: "Omnichannel SaaS (E-commerce + Physical POS) with VIP Club." },
-      { name: "FABRIKA ROOM", role: "React UI", desc: "Immersive e-commerce focused on reducing cart abandonment." },
-      { name: "PC Cleaner", role: "Python Scripting", desc: "Desktop GUI automation to extend hardware lifespan." }
+      { name: "Medicao PetShop", role: "Next.js & Premium UI/UX", desc: "Interactive Landing Page with 3D Glassmorphism and WhatsApp conversion focus." }
     ]
   },
   services: {
@@ -75,6 +76,25 @@ export const en = {
     btnRepo: "Repository",
     projects: [
       {
+        title: "Wave Production",
+        subtitle: "Premium Audiovisual Landing Page",
+        desc: "Immersive digital platform focused on the audiovisual market. Developed to showcase high-quality video portfolios with extreme performance, uniting sophisticated design and optimization for client retention and direct conversion.",
+        tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        features: [
+          "Premium visual experience with Glassmorphism",
+          "Optimized video gallery for fast loading",
+          "Fluid animations designed for attention retention",
+          "Architecture focused on Core Web Vitals"
+        ]
+      },
+      {
+        title: "FABRIKA ROOM", 
+        subtitle: "High-Performance Immersive E-commerce", 
+        desc: "A digital platform built to translate the brand's visual identity into direct sales. Featuring ultra-fast navigation and cinematic transitions, the interface was strategically designed to reduce cart abandonment and increase user screen time.",
+        tags: ["Next.js", "TypeScript", "Tailwind CSS", "UI/UX"], 
+        features: ["Cinematic experience with fluid animations", "Smart collection showcase geared towards Up-selling", "Instant routing (Zero Page Reload)", "Elastic front-end architecture for traffic spikes"]
+      },
+      {
         title: "Distributed Credit Risk Engine",
         subtitle: "High-Performance Backend & EDA",
         desc: "A highly available, asynchronous, and distributed system designed to evaluate microtransaction risk in real-time without impacting end-user latency. Perfect decoupling through event-driven architecture.",
@@ -85,19 +105,6 @@ export const en = {
             "Fault resilience and Idempotency with PostgreSQL"
           ],
         tags: ["Go", "Python", "RabbitMQ", "PostgreSQL", "Docker"]
-      },
-      {
-        title: "Medicao Vet Clinic & Pet Shop",
-        subtitle: "High-Conversion Landing Page",
-        desc: "A web platform developed to revolutionize digital presence in the veterinary niche. Focused on maximizing appointments and sales, the application combines an immersive design with an architecture tailored to guide the client to conversion in seconds, especially during 24/7 emergencies.",
-        features: [
-            "Premium Interface with Glassmorphism and floating 3D elements",
-            "Direct Sales Funnel with smart WhatsApp triage",
-            "Interactive 'Before/After' Slider for grooming social proof",
-            "Mobile-First Experience with App-style Bottom Navigation",
-            "Eye-retention micro-interactions (Custom Cursor & Infinite Scroll)"
-          ],
-        tags: ["Next.js", "Tailwind", "TypeScript", "Figma"]
       },
       {
         title: "Celedonio Law Firm", 
@@ -114,18 +121,17 @@ export const en = {
         features: ["Omnichannel Ecosystem (Physical + Digital Synchronization)", "VIP Club with gamification and point redemption", "Optimized checkout with direct WhatsApp sales funnel", "Admin Panel (CRM) and Automatic Financial Management", "Secure user authentication"]
       },
       {
-        title: "FABRIKA ROOM", 
-        subtitle: "High-Performance Immersive E-commerce", 
-        desc: "A digital platform built to translate the brand's visual identity into direct sales. Featuring ultra-fast navigation and cinematic transitions, the interface was strategically designed to reduce cart abandonment and increase user screen time.",
-        tags: ["Next.js", "TypeScript", "Tailwind CSS", "UI/UX"], 
-        features: ["Cinematic experience with fluid animations", "Smart collection showcase geared towards Up-selling", "Instant routing (Zero Page Reload)", "Elastic front-end architecture for traffic spikes"]
-      },
-      {
-        title: "PC Cleaner & Optimizer", 
-        subtitle: "Desktop Automation for Cost Reduction", 
-        desc: "Software developed in Python to extend hardware lifespan and boost productivity. With just one click, the tool performs deep scans, eliminates memory bottlenecks, and safely restores the original performance of the operating system.",
-        tags: ["Python", "Automation", "OS Module", "Desktop GUI"], 
-        features: ["Surgical automation for disk scanning and cleaning", "RAM/Cache memory management and optimization", "Intuitive Graphical User Interface (GUI) for non-technical users", "Secure native execution via OS Module"]
+        title: "Medicao Vet Clinic & Pet Shop",
+        subtitle: "High-Conversion Landing Page",
+        desc: "A web platform developed to revolutionize digital presence in the veterinary niche. Focused on maximizing appointments and sales, the application combines an immersive design with an architecture tailored to guide the client to conversion in seconds, especially during 24/7 emergencies.",
+        features: [
+            "Premium Interface with Glassmorphism and floating 3D elements",
+            "Direct Sales Funnel with smart WhatsApp triage",
+            "Interactive 'Before/After' Slider for grooming social proof",
+            "Mobile-First Experience with App-style Bottom Navigation",
+            "Eye-retention micro-interactions (Custom Cursor & Infinite Scroll)"
+          ],
+        tags: ["Next.js", "Tailwind", "TypeScript", "Figma"]
       }
     ]
   },
