@@ -38,8 +38,6 @@ function AnimatedNumber({ from, to, duration = 2.5 }: { from: number, to: number
 
 export function Stats() {
   const { t } = useLanguage();
-
-  // Tratativa de segurança caso as métricas sumam do site-config
   const statsList = siteConfig?.stats || [];
 
   return (

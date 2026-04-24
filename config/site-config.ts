@@ -52,7 +52,7 @@ export const siteConfig = {
     },
     {
       id: "wave",
-      liveLink: "https://produtorawave.com",
+      liveLink: "https://69e96d46f0f57e563a60f592--gentle-licorice-53d2d6.netlify.app/",
       githubLink: "https://github.com/davidenisDEV/wave-produtora",
       images: [
         "/waveprod/waveprod.png",
