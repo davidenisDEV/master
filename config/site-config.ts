@@ -8,6 +8,7 @@ export const siteConfig = {
   business: {
     name: "David Oliveira",
     role: "Staff Software Engineer",
+    description: "Construo soluções escaláveis, arquitetura orientada a eventos e automação para maximizar a conversão e eficiência do seu negócio.",
     whatsapp: "+55 (85) 99775-1777",
     email: "daviddenis0112@gmail.com",
     address: "Fortaleza, CE",
