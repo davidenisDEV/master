@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { siteConfig } from "@/config/site-config";
-import { Facebook, Instagram, Linkedin, Github, MapPin, Mail, Phone, ShieldCheck, Terminal as TerminalIcon, X } from "lucide-react"; // <-- Importado o Github
+// REMOVIDO: importação do Facebook do lucide-react
+import { Instagram, Linkedin, Github, MapPin, Mail, Phone, ShieldCheck, Terminal as TerminalIcon, X } from "lucide-react"; 
 import Link from "next/link";
 import { useLanguage } from "@/components/contexts/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
@@ -70,9 +71,6 @@ export function Footer() {
               </motion.a>
               <motion.a whileHover={{ y: -5, rotate: 5, scale: 1.1 }} transition={{ type: "spring", stiffness: 300 }} href={siteConfig.social.github} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                 <Github size={18} />
-              </motion.a>
-              <motion.a whileHover={{ y: -5, rotate: -5, scale: 1.1 }} transition={{ type: "spring", stiffness: 300 }} href={siteConfig.social.facebook} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                <Facebook size={18} />
               </motion.a>
             </div>
 

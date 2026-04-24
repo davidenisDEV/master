@@ -110,8 +110,6 @@ export const siteConfig = {
     { value: 100, suffix: "%", icon: "Target" },  
     { value: 20, prefix: "+", suffix: "k", icon: "TrendingUp" },
   ],
-
-
   /* =============================================================================
   6. SOBRE MIM (ABOUT & STACK TÉCNICA)
   =============================================================================
