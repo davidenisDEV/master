@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Code2, Database, Bot, Terminal, ShieldCheck, ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/components/contexts/LanguageContext";
+import { siteConfig } from "@/config/site-config";
 
 const skillsIcons = [
   <Code2 key="front" className="w-10 h-10 text-primary" />,
@@ -13,6 +14,12 @@ const skillsIcons = [
 ];
 
 const projectAssets = [
+  { 
+    id: "celedonio",
+    liveLink: "https://celedonioadvocacia.com.br/",
+    githubLink: "https://github.com/davidenisDEV/CeledonioAdvg", 
+    images: ["/celedonio/celedonio.png", "/celedonio/celedonio2.png", "/celedonio/celedonio3.png", "/celedonio/celedonio4.png", "/celedonio/celedonio5.png", "/celedonio/celedonio6.png"] 
+  },
   { 
     id: "Wave Produtora",
     liveLink: "produtorawave.com", 
@@ -26,22 +33,16 @@ const projectAssets = [
     images: ["/fabrika/fabrika.png", "/fabrika/fabrika2.png", "/fabrika/fabrika3.png", "/fabrika/fabrika4.png", "/fabrika/fabrika5.png", "/fabrika/fabrika6.png"] 
   },
   { 
-    id: "credit-risk",
-    liveLink: "", 
-    githubLink: "https://github.com/davidenisDEV/credit-risk-system", 
-    images: [] 
-  },
-  { 
-    id: "celedonio",
-    liveLink: "", 
-    githubLink: "https://github.com/davidenisDEV/CeledonioAdvg", 
-    images: ["/celedonio/celedonio.png", "/celedonio/celedonio2.png", "/celedonio/celedonio3.png", "/celedonio/celedonio4.png", "/celedonio/celedonio5.png", "/celedonio/celedonio6.png"] 
-  },
-  { 
     id: "gogreen",
     liveLink: "https://gogreen-4fmn.vercel.app/", 
     githubLink: "https://github.com/davidenisDEV/gogreen", 
     images: ["/gogreen/gogreenhero.png", "/gogreen/gogreenheroabraba.png", "/gogreen/gogreenherokits.png", "/gogreen/gogreenheroitens.png", "/gogreen/gogreenclub.png", "/gogreen/gogreenmusic.png"] 
+  },
+  { 
+    id: "credit-risk",
+    liveLink: "", 
+    githubLink: "https://github.com/davidenisDEV/credit-risk-system", 
+    images: [] 
   },
   { 
     id: "petshop",
@@ -261,34 +262,6 @@ export function Services() {
 
   return (
     <>
-      <section id="services" className="py-24 relative overflow-hidden bg-slate-50/80 dark:bg-slate-950/80 z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10"></div>
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 dark:bg-primary/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
-
-        <motion.img 
-          src="/svg/services.svg" 
-          alt="Services Illustration"
-          animate={{ y: [-15, 10, -15] }} 
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 -left-10 lg:left-10 w-48 md:w-72 opacity-30 dark:opacity-40 z-0 pointer-events-none"
-        />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-16 relative">
-            <h2 className="text-3xl md:text-4xl font-semibold text-slate-800 dark:text-white mb-4 font-heading leading-tight">
-              {t?.services?.title} <br /> <span className="text-primary">{t?.services?.titleHighlight}</span>
-            </h2>
-            <p className="text-slate-500 dark:text-slate-400">{t?.services?.subtitle}</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 relative z-20">
-            {t?.services?.skills?.map((skill: any, index: number) => (
-              <SkillCard key={index} skill={skill} icon={skillsIcons[index]} index={index} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="portfolio" className="py-24 relative overflow-hidden bg-slate-50/80 dark:bg-slate-950/80 border-t border-slate-200/50 dark:border-slate-800/50 z-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/20 dark:bg-blue-500/10 blur-[150px] rounded-full pointer-events-none -z-10"></div>
@@ -304,15 +277,20 @@ export function Services() {
           </div>
 
           <div className="max-w-6xl mx-auto">
-            {(t?.services?.projects || []).map((project: any, index: number) => (
-              <ProjectCard 
-                key={index} 
-                project={project} 
-                assets={projectAssets[index]} 
-                isReversed={index % 2 !== 0} 
-                texts={{ btnLive: t?.services?.btnLive, btnRepo: t?.services?.btnRepo }}
-              />
-            ))}
+            {siteConfig.portfolio.map((projectAsset: any, index: number) => {
+              // Pega a tradução baseada no Index (ou no ID na próxima etapa do en.ts/pt.ts)
+              const projectTranslation = t?.services?.projects?.[index];
+
+              return (
+                <ProjectCard 
+                  key={projectAsset.id} 
+                  project={projectTranslation} 
+                  assets={projectAsset} 
+                  isReversed={index % 2 !== 0} 
+                  texts={{ btnLive: t?.services?.btnLive, btnRepo: t?.services?.btnRepo }}
+                />
+              )
+            })}
           </div>
         </div>
       </section>

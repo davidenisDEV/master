@@ -22,7 +22,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Função inteligente que só troca de idioma se o utilizador clicar num diferente do atual
+
   const handleLanguageChange = (lang: "PT" | "EN") => {
     if (lang !== language) {
       toggleLanguage();
@@ -34,7 +34,6 @@ export function Navbar() {
   const navLinks = [
     { label: t.navbar.services, href: "#services" },
     { label: t.navbar.portfolio, href: "#portfolio" },
-    { label: t.navbar.pricing, href: "#pricing" },
     { label: t.navbar.contact, href: "#contact" },
   ];
 

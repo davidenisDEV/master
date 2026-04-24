@@ -43,13 +43,35 @@ export const pt = {
     ptVersion: "Versão em Português",
     enVersion: "English Version",
     projects: [
-      { name: "Wave Produtora", role: "Next.js & UI/UX Premium", desc: "Landing Page Premium para produtora de audiovisual." },
-      { name: "FABRIKA ROOM", role: "React UI Underground", desc: "E-commerce imersivo focado em redução de abandono de carrinho." },
-      { name: "Credit Risk Engine", role: "Sistemas Distribuídos & EDA", desc: "Motor de análise de risco assíncrono processando microtransações com Go, Python e RabbitMQ." },
-      { name: "Celedonio Advocacia", role: "Next.js & UI/UX", desc: "Landing Page Premium para captação de leads jurídicos." },
-      { name: "GoGreen Headshop", role: "SaaS Full-Stack", desc: "SaaS Omnichannel (E-commerce + PDV físico) com Clube VIP." },
-      { name: "Medicao PetShop", role: "Next.js & UI/UX Premium", desc: "Landing Page interativa com Glassmorphism 3D e foco em conversão via WhatsApp." }
-    ]
+  {
+    title: "Celedonio Advocacia", 
+    subtitle: "Máquina de Captação de Leads", 
+    desc: "Plataforma digital institucional desenvolvida para elevar a autoridade no mercado jurídico. O projeto une um design sóbrio em Dark Glassmorphism a gatilhos mentais de segurança.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"], 
+    features: ["Design de autoridade em Dark Glassmorphism", "Funis de conversão isolados", "Arquitetura SEO-first"]
+  },
+  {
+    title: "Wave Produtora",
+    subtitle: "Next.js & UI/UX Premium",
+    desc: "Plataforma digital imersiva focada no mercado audiovisual. Desenvolvida para exibir portfólios de vídeos de alta qualidade com performance extrema.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    features: ["Experiência visual premium", "Galeria de vídeos otimizada", "Retenção de atenção via animações"]
+  },
+  {
+    title: "FABRIKA ROOM", 
+    subtitle: "E-commerce Imersivo (Em Desenvolvimento)", 
+    desc: "Plataforma digital construída para transformar a identidade visual da marca em vendas diretas através de navegação ultrarrápida e transições cinematográficas.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "UI/UX"], 
+    features: ["Experiência cinematográfica", "Vitrine inteligente", "Zero Page Reload"]
+  },
+  {
+    title: "GoGreen Headshop", 
+    subtitle: "SaaS E-commerce & PDV Omnichannel", 
+    desc: "Solução tecnológica completa que unifica vendas físicas e digitais com gestão de estoque em tempo real e Clube VIP. (Novas features em breve).",
+    tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"], 
+    features: ["Sincronização Físico + Digital", "Clube VIP com gamificação", "Checkout otimizado"]
+  }
+]
   },
   services: {
     title: "Soluções sob medida para o",
@@ -76,6 +98,13 @@ export const pt = {
     btnRepo: "Repositório",
     projects: [
       {
+        title: "Celedonio Advocacia", 
+        subtitle: "Máquina de Captação de Leads", 
+        desc: "Plataforma digital institucional desenvolvida para elevar a autoridade no mercado jurídico. O projeto une um design sóbrio em Dark Glassmorphism a gatilhos mentais de segurança, transformando o tráfego do site em solicitações reais de assessoria jurídica.",
+        tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"], 
+        features: ["Design de autoridade em Dark Glassmorphism", "Funis de conversão isolados por área de atuação", "Animações fluidas para retenção de atenção", "Sistema de internacionalização e Arquitetura SEO-first"]
+      },
+      {
         title: "Wave Produtora",
         subtitle: "Next.js & UI/UX Premium",
         desc: "Plataforma digital imersiva focada no mercado audiovisual. Desenvolvida para exibir portfólios de vídeos de alta qualidade com performance extrema, unindo design sofisticado e otimização para retenção de clientes e conversão direta.",
@@ -95,6 +124,13 @@ export const pt = {
         features: ["Experiência cinematográfica com animações fluidas", "Vitrine inteligente de coleções orientada a Up-sell", "Roteamento instantâneo (Zero Page Reload)", "Arquitetura front-end elástica para picos de tráfego"]
       },
       {
+        title: "GoGreen Headshop", 
+        subtitle: "SaaS E-commerce & PDV Omnichannel", 
+        desc: "Solução tecnológica completa que unifica vendas físicas e digitais. Muito mais que um e-commerce comum, o ecossistema integra gestão de estoque em tempo real, PDV de balcão de alta velocidade e um Clube VIP projetado para maximizar o LTV (Customer Lifetime Value).",
+        tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"], 
+        features: ["Ecossistema Omnichannel (Sincronização Físico + Digital)", "Clube VIP com gamificação e resgate de pontos", "Checkout otimizado com funil de fechamento no WhatsApp", "Painel Administrativo (CRM) e Gestão Financeira Automática", "Autenticação segura"]
+      },
+      {
         title: "Motor de Risco de Crédito Distribuído",
         subtitle: "High-Performance Backend & EDA",
         desc: "Um sistema distribuído, assíncrono e de alta disponibilidade projetado para avaliar o risco de microtransações em tempo real, sem impactar a latência do usuário final. Desacoplamento perfeito através de arquitetura orientada a eventos.",
@@ -105,20 +141,6 @@ export const pt = {
             "Resiliência a falhas e Idempotência com PostgreSQL"
           ],
         tags: ["Go", "Python", "RabbitMQ", "PostgreSQL", "Docker"]
-      },
-      {
-        title: "Celedonio Advocacia", 
-        subtitle: "Máquina de Captação de Leads", 
-        desc: "Plataforma digital institucional desenvolvida para elevar a autoridade no mercado jurídico. O projeto une um design sóbrio em Dark Glassmorphism a gatilhos mentais de segurança, transformando o tráfego do site em solicitações reais de assessoria jurídica.",
-        tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"], 
-        features: ["Design de autoridade em Dark Glassmorphism", "Funis de conversão isolados por área de atuação", "Animações fluidas para retenção de atenção", "Sistema de internacionalização e Arquitetura SEO-first"]
-      },
-      {
-        title: "GoGreen Headshop", 
-        subtitle: "SaaS E-commerce & PDV Omnichannel", 
-        desc: "Solução tecnológica completa que unifica vendas físicas e digitais. Muito mais que um e-commerce comum, o ecossistema integra gestão de estoque em tempo real, PDV de balcão de alta velocidade e um Clube VIP projetado para maximizar o LTV (Customer Lifetime Value).",
-        tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"], 
-        features: ["Ecossistema Omnichannel (Sincronização Físico + Digital)", "Clube VIP com gamificação e resgate de pontos", "Checkout otimizado com funil de fechamento no WhatsApp", "Painel Administrativo (CRM) e Gestão Financeira Automática", "Autenticação segura"]
       },
       {
         title: "Medicao Clínica & Pet Shop",
